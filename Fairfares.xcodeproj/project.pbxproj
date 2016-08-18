@@ -1,0 +1,301 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F09889D11D64F6A2005416E7 /* lyft.png in Resources */ = {isa = PBXBuildFile; fileRef = F09889CF1D64F6A2005416E7 /* lyft.png */; };
+		F09889D21D64F6A2005416E7 /* uber.png in Resources */ = {isa = PBXBuildFile; fileRef = F09889D01D64F6A2005416E7 /* uber.png */; };
+		F0B15C201D6608EE0037AEE5 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F0B15C1D1D6608EE0037AEE5 /* Icon.png */; };
+		F0B15C211D6608EE0037AEE5 /* Screenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = F0B15C1E1D6608EE0037AEE5 /* Screenshot.png */; };
+		F0B15C221D6608EE0037AEE5 /* Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = F0B15C1F1D6608EE0037AEE5 /* Splash.png */; };
+		F0EB31C01D3F259D002F900C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EB31BF1D3F259D002F900C /* AppDelegate.swift */; };
+		F0EB31C21D3F259D002F900C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EB31C11D3F259D002F900C /* ViewController.swift */; };
+		F0EB31C71D3F259D002F900C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0EB31C61D3F259D002F900C /* Assets.xcassets */; };
+		F0EB31D91D3F27DE002F900C /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = F0EB31D81D3F27DE002F900C /* Logo.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F09889CF1D64F6A2005416E7 /* lyft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lyft.png; path = Images/lyft.png; sourceTree = SOURCE_ROOT; };
+		F09889D01D64F6A2005416E7 /* uber.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = uber.png; path = Images/uber.png; sourceTree = SOURCE_ROOT; };
+		F0B15C1D1D6608EE0037AEE5 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Images/Icon.png; sourceTree = "<group>"; };
+		F0B15C1E1D6608EE0037AEE5 /* Screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Screenshot.png; path = Images/Screenshot.png; sourceTree = "<group>"; };
+		F0B15C1F1D6608EE0037AEE5 /* Splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Splash.png; path = Images/Splash.png; sourceTree = "<group>"; };
+		F0EB31BC1D3F259D002F900C /* Fairfares.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fairfares.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0EB31BF1D3F259D002F900C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F0EB31C11D3F259D002F900C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F0EB31C61D3F259D002F900C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F0EB31CB1D3F259D002F900C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F0EB31D81D3F27DE002F900C /* Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Logo.png; path = Images/Logo.png; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F0EB31B91D3F259D002F900C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F0EB31B31D3F259D002F900C = {
+			isa = PBXGroup;
+			children = (
+				F0EB31D31D3F25E6002F900C /* Images */,
+				F0EB31BE1D3F259D002F900C /* Fairfares */,
+				F0EB31BD1D3F259D002F900C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F0EB31BD1D3F259D002F900C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F0EB31BC1D3F259D002F900C /* Fairfares.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F0EB31BE1D3F259D002F900C /* Fairfares */ = {
+			isa = PBXGroup;
+			children = (
+				F0EB31BF1D3F259D002F900C /* AppDelegate.swift */,
+				F0EB31C11D3F259D002F900C /* ViewController.swift */,
+				F0EB31C61D3F259D002F900C /* Assets.xcassets */,
+				F0EB31CB1D3F259D002F900C /* Info.plist */,
+			);
+			path = Fairfares;
+			sourceTree = "<group>";
+		};
+		F0EB31D31D3F25E6002F900C /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				F0EB31D81D3F27DE002F900C /* Logo.png */,
+				F0B15C1D1D6608EE0037AEE5 /* Icon.png */,
+				F0B15C1E1D6608EE0037AEE5 /* Screenshot.png */,
+				F0B15C1F1D6608EE0037AEE5 /* Splash.png */,
+				F09889CF1D64F6A2005416E7 /* lyft.png */,
+				F09889D01D64F6A2005416E7 /* uber.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F0EB31BB1D3F259D002F900C /* Fairfares */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F0EB31CE1D3F259D002F900C /* Build configuration list for PBXNativeTarget "Fairfares" */;
+			buildPhases = (
+				F0EB31B81D3F259D002F900C /* Sources */,
+				F0EB31B91D3F259D002F900C /* Frameworks */,
+				F0EB31BA1D3F259D002F900C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Fairfares;
+			productName = Fairfares;
+			productReference = F0EB31BC1D3F259D002F900C /* Fairfares.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F0EB31B41D3F259D002F900C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = Molson;
+				TargetAttributes = {
+					F0EB31BB1D3F259D002F900C = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = F0EB31B71D3F259D002F900C /* Build configuration list for PBXProject "Fairfares" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F0EB31B31D3F259D002F900C;
+			productRefGroup = F0EB31BD1D3F259D002F900C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F0EB31BB1D3F259D002F900C /* Fairfares */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F0EB31BA1D3F259D002F900C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0EB31D91D3F27DE002F900C /* Logo.png in Resources */,
+				F09889D21D64F6A2005416E7 /* uber.png in Resources */,
+				F0B15C201D6608EE0037AEE5 /* Icon.png in Resources */,
+				F0B15C221D6608EE0037AEE5 /* Splash.png in Resources */,
+				F0EB31C71D3F259D002F900C /* Assets.xcassets in Resources */,
+				F09889D11D64F6A2005416E7 /* lyft.png in Resources */,
+				F0B15C211D6608EE0037AEE5 /* Screenshot.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F0EB31B81D3F259D002F900C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0EB31C21D3F259D002F900C /* ViewController.swift in Sources */,
+				F0EB31C01D3F259D002F900C /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		F0EB31CC1D3F259D002F900C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F0EB31CD1D3F259D002F900C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F0EB31CF1D3F259D002F900C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				INFOPLIST_FILE = Fairfares/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Molson.Fairfares;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F0EB31D01D3F259D002F900C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				INFOPLIST_FILE = Fairfares/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Molson.Fairfares;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F0EB31B71D3F259D002F900C /* Build configuration list for PBXProject "Fairfares" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F0EB31CC1D3F259D002F900C /* Debug */,
+				F0EB31CD1D3F259D002F900C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F0EB31CE1D3F259D002F900C /* Build configuration list for PBXNativeTarget "Fairfares" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F0EB31CF1D3F259D002F900C /* Debug */,
+				F0EB31D01D3F259D002F900C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F0EB31B41D3F259D002F900C /* Project object */;
+}
