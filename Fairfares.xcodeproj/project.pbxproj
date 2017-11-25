@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F09889D11D64F6A2005416E7 /* lyft.png in Resources */ = {isa = PBXBuildFile; fileRef = F09889CF1D64F6A2005416E7 /* lyft.png */; };
 		F09889D21D64F6A2005416E7 /* uber.png in Resources */ = {isa = PBXBuildFile; fileRef = F09889D01D64F6A2005416E7 /* uber.png */; };
+		F0A8B5BC1FC8AABE00DADC3B /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0A8B5BB1FC8AABE00DADC3B /* GoogleMobileAds.framework */; };
 		F0B15C201D6608EE0037AEE5 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F0B15C1D1D6608EE0037AEE5 /* Icon.png */; };
 		F0B15C211D6608EE0037AEE5 /* Screenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = F0B15C1E1D6608EE0037AEE5 /* Screenshot.png */; };
 		F0B15C221D6608EE0037AEE5 /* Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = F0B15C1F1D6608EE0037AEE5 /* Splash.png */; };
@@ -21,6 +22,7 @@
 /* Begin PBXFileReference section */
 		F09889CF1D64F6A2005416E7 /* lyft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lyft.png; path = Images/lyft.png; sourceTree = SOURCE_ROOT; };
 		F09889D01D64F6A2005416E7 /* uber.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = uber.png; path = Images/uber.png; sourceTree = SOURCE_ROOT; };
+		F0A8B5BB1FC8AABE00DADC3B /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = "Frameworks/GoogleMobileAdsSdkiOS-7.26.0/GoogleMobileAds.framework"; sourceTree = "<group>"; };
 		F0B15C1D1D6608EE0037AEE5 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Images/Icon.png; sourceTree = "<group>"; };
 		F0B15C1E1D6608EE0037AEE5 /* Screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Screenshot.png; path = Images/Screenshot.png; sourceTree = "<group>"; };
 		F0B15C1F1D6608EE0037AEE5 /* Splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Splash.png; path = Images/Splash.png; sourceTree = "<group>"; };
@@ -37,18 +39,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0A8B5BC1FC8AABE00DADC3B /* GoogleMobileAds.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F0A8B5BA1FC8AABE00DADC3B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F0A8B5BB1FC8AABE00DADC3B /* GoogleMobileAds.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F0EB31B31D3F259D002F900C = {
 			isa = PBXGroup;
 			children = (
 				F0EB31D31D3F25E6002F900C /* Images */,
 				F0EB31BE1D3F259D002F900C /* Fairfares */,
 				F0EB31BD1D3F259D002F900C /* Products */,
+				F0A8B5BA1FC8AABE00DADC3B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,11 +123,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = Molson;
 				TargetAttributes = {
 					F0EB31BB1D3F259D002F900C = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = TH5V2K4K28;
 					};
 				};
 			};
@@ -176,13 +189,21 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -204,7 +225,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -221,13 +242,21 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -243,9 +272,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -255,10 +285,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				DEVELOPMENT_TEAM = TH5V2K4K28;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks/GoogleMobileAdsSdkiOS-7.26.0",
+				);
 				INFOPLIST_FILE = Fairfares/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Molson.Fairfares;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -267,10 +303,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				DEVELOPMENT_TEAM = TH5V2K4K28;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks/GoogleMobileAdsSdkiOS-7.26.0",
+				);
 				INFOPLIST_FILE = Fairfares/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Molson.Fairfares;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

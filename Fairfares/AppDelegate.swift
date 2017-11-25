@@ -7,23 +7,27 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    let rootView = ViewController()
+    
+    func applicationDidFinishLaunching(_ application: UIApplication) {
         self.window = UIWindow()
-        let rootView = ViewController()
+        GADMobileAds.configure(withApplicationID: "ca-app-pub-APP_ID")
         
         if let window = self.window {
             window.rootViewController = rootView
-            window.backgroundColor = UIColor.whiteColor()
+            window.backgroundColor = UIColor.white
             window.makeKeyAndVisible()
         }
-        
-        return true
+    }
+    
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        rootView.locManager.startUpdatingLocation()
     }
 }
 
