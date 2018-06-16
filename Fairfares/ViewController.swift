@@ -8,14 +8,12 @@
 
 import UIKit
 import CoreLocation
-import GoogleMobileAds
 
-class ViewController: UIViewController, CLLocationManagerDelegate, GADInterstitialDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate {
     
     var locManager : CLLocationManager!
     var uberSurge : UILabel!
     var lyftSurge : UILabel!
-    var interstitial: GADInterstitial!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,42 +24,51 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GADInterstiti
         scrollView.refreshControl = refreshControl
         
         let bounds = UIScreen.main.bounds
-        let diameter = (bounds.height-20)/2 - 10
+        let buttonWidth = bounds.width - 20
+        var buttonHeight = 0.4*bounds.height
+        if bounds.height == 812 || bounds.height == 2436 { // iPhoneX TODO
+            buttonHeight = bounds.height - 500
+        }
         
-        let uberButton = UIButton(frame: CGRect(x:(bounds.width-diameter)/2,y:10,width:diameter,height:diameter))
+        let logoView = UIImageView(frame: CGRect(x: (bounds.width-buttonWidth)/2, y: 0, width: bounds.width, height: 0.1*bounds.height))
+        logoView.image = UIImage(named: "Logo.png")
+        logoView.contentMode = .scaleAspectFit
+        scrollView.addSubview(logoView)
+        
+        let uberButton = UIButton(frame: CGRect(x:(bounds.width-buttonWidth)/2,y:0.125*bounds.height,width:buttonWidth,height:buttonHeight))
         uberButton.backgroundColor = UIColor.black
-        uberButton.layer.cornerRadius = diameter/2
+        uberButton.layer.cornerRadius = 15
         uberButton.clipsToBounds = true
         uberButton.addTarget(self, action: #selector(openUber), for: .touchUpInside)
         
-        let uberLogo = UIImageView(frame: CGRect(x:diameter/6,y:diameter/5,width:4/6*diameter,height:diameter/4))
+        let uberLogo = UIImageView(frame: CGRect(x:buttonWidth/6, y:0.2*buttonHeight, width:4/6*buttonWidth, height:0.3*buttonHeight))
         uberLogo.image = UIImage(named: "uber.png")
         uberButton.addSubview(uberLogo)
         
-        uberSurge = UILabel(frame: CGRect(x:diameter/6, y:diameter/2, width:4/6*diameter, height:diameter/4))
+        uberSurge = UILabel(frame: CGRect(x:buttonWidth/6, y:0.5*buttonHeight, width:4/6*buttonWidth, height:0.3*buttonHeight))
         uberSurge.text = "?.??x"
         uberSurge.textColor = UIColor.white
         uberSurge.textAlignment = NSTextAlignment.center;
-        uberSurge.font = uberSurge.font.withSize(diameter/5)
+        uberSurge.font = uberSurge.font.withSize(bounds.height/10)
         uberButton.addSubview(uberSurge)
         
         scrollView.addSubview(uberButton)
         
-        let lyftButton = UIButton(frame: CGRect(x:(bounds.width-diameter)/2,y:15+diameter,width:diameter,height:diameter))
+        let lyftButton = UIButton(frame: CGRect(x:(bounds.width-buttonWidth)/2,y:0.55*bounds.height,width:buttonWidth,height:buttonHeight))
         lyftButton.backgroundColor = UIColor.magenta
-        lyftButton.layer.cornerRadius = diameter/2
+        lyftButton.layer.cornerRadius = 15
         lyftButton.clipsToBounds = true
         lyftButton.addTarget(self, action: #selector(openLyft), for: .touchUpInside)
         
-        let lyftLogo = UIImageView(frame: CGRect(x:diameter/5,y:diameter/6,width:0.6*diameter+10,height:diameter/3))
+        let lyftLogo = UIImageView(frame: CGRect(x:0.25*buttonWidth, y:0.2*buttonHeight, width:0.5*buttonWidth, height:0.3*buttonHeight))
         lyftLogo.image = UIImage(named: "lyft.png")
         lyftButton.addSubview(lyftLogo)
         
-        lyftSurge = UILabel(frame: CGRect(x:diameter/6, y:diameter/2, width:4/6*diameter, height:diameter/4))
+        lyftSurge = UILabel(frame: CGRect(x:buttonWidth/6, y:0.5*buttonHeight, width:4/6*buttonWidth, height:0.3*buttonHeight))
         lyftSurge.text = "?.??x"
         lyftSurge.textColor = UIColor.white
         lyftSurge.textAlignment = NSTextAlignment.center
-        lyftSurge.font = lyftSurge.font.withSize(diameter/5)
+        lyftSurge.font = lyftSurge.font.withSize(bounds.height/10)
         lyftButton.addSubview(lyftSurge)
         
         scrollView.addSubview(lyftButton)
@@ -73,16 +80,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GADInterstiti
         locManager.startUpdatingLocation()
         
         self.view.addSubview(scrollView)
-        
-        interstitial = GADInterstitial(adUnitID: "ca-app-pub-AD_UNIT_ID")
-        let request = GADRequest()
-        request.testDevices = [ kGADSimulatorID ]
-        interstitial.load(request)
-        interstitial.delegate = self
-    }
-    
-    func interstitialDidReceiveAd(_ ad: GADInterstitial) {
-        interstitial.present(fromRootViewController: self)
     }
     
     @objc func refreshView(sender: UIRefreshControl) {
@@ -101,7 +98,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GADInterstiti
             let url1 = NSURL(string: "https://api.uber.com/v1/estimates/price?start_latitude=" + String(lat) + "&start_longitude=" + String(lon) + "&end_latitude=" + String(lat) + "&end_longitude=" + String(lon))
             let request1 = NSMutableURLRequest(url: url1! as URL)
             request1.httpMethod = "GET"
-            request1.setValue("Token UBER_TOKEN", forHTTPHeaderField: "Authorization")
+            request1.setValue("Token kWHSMejyzdpLL7-OoNpSPQSbHgzFF1TuFxmEOrtO", forHTTPHeaderField: "Authorization")
             let session1 = URLSession.shared
             session1.dataTask(with: request1 as URLRequest, completionHandler: { (returnData1, response1, error1) -> Void in
                 do {
@@ -110,8 +107,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GADInterstiti
                     for uberCarTemp in uberCars! {
                         let uberCar = uberCarTemp as! NSDictionary
                         let carName = uberCar["display_name"] as! String
-                        if carName == "uberX" {
-                            let uSurge = uberCar["surge_multiplier"] as! Float
+                        if carName == "UberX" || carName == "uberX" {
+                            let uSurge = uberCar["surge_multiplier"] as! Double
                             DispatchQueue.main.async {
                                 self.uberSurge.text = String(format: "%.2f", uSurge) + "x"
                                 self.uberSurge.setNeedsDisplay()
@@ -132,7 +129,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GADInterstiti
                 request2.httpMethod = "POST"
                 request2.httpBody = jsonData2
                 request2.setValue("application/json", forHTTPHeaderField: "Content-Type")
-                let authorization = "LYFT_AUTH".data(using:String.Encoding.utf8)?.base64EncodedString(options:NSData.Base64EncodingOptions(rawValue: 0))
+                let authorization = "7_DB9J4yrmiq:L4HrhTTa2Pempal8xvh-HhtoKpWEEsVQ".data(using:String.Encoding.utf8)?.base64EncodedString(options:NSData.Base64EncodingOptions(rawValue: 0))
                 request2.setValue("Basic " + authorization!, forHTTPHeaderField: "Authorization")
                 
                 let session2 = URLSession.shared

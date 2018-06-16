@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import GoogleMobileAds
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,7 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationDidFinishLaunching(_ application: UIApplication) {
         self.window = UIWindow()
-        GADMobileAds.configure(withApplicationID: "ca-app-pub-APP_ID")
         
         if let window = self.window {
             window.rootViewController = rootView
@@ -26,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func applicationWillEnterForeground(_ application: UIApplication) {
+    func applicationDidBecomeActive(_ application: UIApplication) {
         rootView.locManager.startUpdatingLocation()
     }
 }

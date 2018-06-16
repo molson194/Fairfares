@@ -3,13 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F01C211320D581B9009C9012 /* Fairfares.app in Resources */ = {isa = PBXBuildFile; fileRef = F049FA1720D57D1E0032490C /* Fairfares.app */; };
+		F02D67F920CBB19400E3C78F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F02D67F820CBB19400E3C78F /* LaunchScreen.storyboard */; };
 		F09889D11D64F6A2005416E7 /* lyft.png in Resources */ = {isa = PBXBuildFile; fileRef = F09889CF1D64F6A2005416E7 /* lyft.png */; };
 		F09889D21D64F6A2005416E7 /* uber.png in Resources */ = {isa = PBXBuildFile; fileRef = F09889D01D64F6A2005416E7 /* uber.png */; };
-		F0A8B5BC1FC8AABE00DADC3B /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0A8B5BB1FC8AABE00DADC3B /* GoogleMobileAds.framework */; };
 		F0B15C201D6608EE0037AEE5 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F0B15C1D1D6608EE0037AEE5 /* Icon.png */; };
 		F0B15C211D6608EE0037AEE5 /* Screenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = F0B15C1E1D6608EE0037AEE5 /* Screenshot.png */; };
 		F0B15C221D6608EE0037AEE5 /* Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = F0B15C1F1D6608EE0037AEE5 /* Splash.png */; };
@@ -20,13 +21,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F009487920D4F7240015AC48 /* Fairfares.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Fairfares.entitlements; sourceTree = "<group>"; };
+		F02D67F820CBB19400E3C78F /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F049FA1720D57D1E0032490C /* Fairfares.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fairfares.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F09889CF1D64F6A2005416E7 /* lyft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lyft.png; path = Images/lyft.png; sourceTree = SOURCE_ROOT; };
 		F09889D01D64F6A2005416E7 /* uber.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = uber.png; path = Images/uber.png; sourceTree = SOURCE_ROOT; };
-		F0A8B5BB1FC8AABE00DADC3B /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = "Frameworks/GoogleMobileAdsSdkiOS-7.26.0/GoogleMobileAds.framework"; sourceTree = "<group>"; };
 		F0B15C1D1D6608EE0037AEE5 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Images/Icon.png; sourceTree = "<group>"; };
 		F0B15C1E1D6608EE0037AEE5 /* Screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Screenshot.png; path = Images/Screenshot.png; sourceTree = "<group>"; };
 		F0B15C1F1D6608EE0037AEE5 /* Splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Splash.png; path = Images/Splash.png; sourceTree = "<group>"; };
-		F0EB31BC1D3F259D002F900C /* Fairfares.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fairfares.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0EB31BF1D3F259D002F900C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0EB31C11D3F259D002F900C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F0EB31C61D3F259D002F900C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -39,17 +41,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F0A8B5BC1FC8AABE00DADC3B /* GoogleMobileAds.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F0A8B5BA1FC8AABE00DADC3B /* Frameworks */ = {
+		F01C210C20D58051009C9012 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F0A8B5BB1FC8AABE00DADC3B /* GoogleMobileAds.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -59,25 +59,19 @@
 			children = (
 				F0EB31D31D3F25E6002F900C /* Images */,
 				F0EB31BE1D3F259D002F900C /* Fairfares */,
-				F0EB31BD1D3F259D002F900C /* Products */,
-				F0A8B5BA1FC8AABE00DADC3B /* Frameworks */,
+				F049FA1720D57D1E0032490C /* Fairfares.app */,
+				F01C210C20D58051009C9012 /* Frameworks */,
 			);
-			sourceTree = "<group>";
-		};
-		F0EB31BD1D3F259D002F900C /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				F0EB31BC1D3F259D002F900C /* Fairfares.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		F0EB31BE1D3F259D002F900C /* Fairfares */ = {
 			isa = PBXGroup;
 			children = (
+				F009487920D4F7240015AC48 /* Fairfares.entitlements */,
 				F0EB31BF1D3F259D002F900C /* AppDelegate.swift */,
 				F0EB31C11D3F259D002F900C /* ViewController.swift */,
 				F0EB31C61D3F259D002F900C /* Assets.xcassets */,
+				F02D67F820CBB19400E3C78F /* LaunchScreen.storyboard */,
 				F0EB31CB1D3F259D002F900C /* Info.plist */,
 			);
 			path = Fairfares;
@@ -113,7 +107,7 @@
 			);
 			name = Fairfares;
 			productName = Fairfares;
-			productReference = F0EB31BC1D3F259D002F900C /* Fairfares.app */;
+			productReference = F049FA1720D57D1E0032490C /* Fairfares.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -123,17 +117,48 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0910;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = Molson;
 				TargetAttributes = {
 					F0EB31BB1D3F259D002F900C = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = TH5V2K4K28;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 0;
+							};
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+							com.apple.GameCenter.iOS = {
+								enabled = 0;
+							};
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+							com.apple.Keychain = {
+								enabled = 0;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
+							com.apple.Push = {
+								enabled = 0;
+							};
+							com.apple.SafariKeychain = {
+								enabled = 0;
+							};
+							com.apple.VPNLite = {
+								enabled = 0;
+							};
+							com.apple.iCloud = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
 			buildConfigurationList = F0EB31B71D3F259D002F900C /* Build configuration list for PBXProject "Fairfares" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -141,7 +166,7 @@
 				Base,
 			);
 			mainGroup = F0EB31B31D3F259D002F900C;
-			productRefGroup = F0EB31BD1D3F259D002F900C /* Products */;
+			productRefGroup = F0EB31B31D3F259D002F900C;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -156,12 +181,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0EB31D91D3F27DE002F900C /* Logo.png in Resources */,
+				F02D67F920CBB19400E3C78F /* LaunchScreen.storyboard in Resources */,
 				F09889D21D64F6A2005416E7 /* uber.png in Resources */,
 				F0B15C201D6608EE0037AEE5 /* Icon.png in Resources */,
 				F0B15C221D6608EE0037AEE5 /* Splash.png in Resources */,
 				F0EB31C71D3F259D002F900C /* Assets.xcassets in Resources */,
 				F09889D11D64F6A2005416E7 /* lyft.png in Resources */,
 				F0B15C211D6608EE0037AEE5 /* Screenshot.png in Resources */,
+				F01C211320D581B9009C9012 /* Fairfares.app in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,12 +220,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -206,9 +235,11 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Matt Olson (TH5V2K4K28)";
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = TH5V2K4K28;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -225,9 +256,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = Fairfares/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = Fairfares;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -246,12 +279,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -259,9 +294,11 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Matt Olson (TH5V2K4K28)";
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = TH5V2K4K28;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -272,10 +309,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = Fairfares/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = Fairfares;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -284,16 +324,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TH5V2K4K28;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Frameworks/GoogleMobileAdsSdkiOS-7.26.0",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Fairfares/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Molson.Fairfares;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Fairfares;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -302,16 +345,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TH5V2K4K28;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Frameworks/GoogleMobileAdsSdkiOS-7.26.0",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Fairfares/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Molson.Fairfares;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Fairfares;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
