@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import Intents
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
     
@@ -78,6 +79,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         locManager.delegate = self
         locManager.desiredAccuracy = kCLLocationAccuracyBest
         locManager.startUpdatingLocation()
+        
+        INPreferences.requestSiriAuthorization { status in
+            if status == .authorized {
+                print("Hey, Siri!")
+            } else {
+                print("Nay, Siri!")
+            }
+        }
         
         self.view.addSubview(scrollView)
     }

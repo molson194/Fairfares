@@ -17,7 +17,33 @@
 		F0EB31C21D3F259D002F900C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EB31C11D3F259D002F900C /* ViewController.swift */; };
 		F0EB31C71D3F259D002F900C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0EB31C61D3F259D002F900C /* Assets.xcassets */; };
 		F0EB31D91D3F27DE002F900C /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = F0EB31D81D3F27DE002F900C /* Logo.png */; };
+		F0FC078520FF00F40066AC08 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FC078420FF00F40066AC08 /* IntentHandler.swift */; };
+		F0FC079920FF00F50066AC08 /* surgefinder.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F0FC078220FF00F40066AC08 /* surgefinder.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F0FC079720FF00F50066AC08 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F0EB31B41D3F259D002F900C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F0FC078120FF00F40066AC08;
+			remoteInfo = surgefinder;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F0FC077620FEFC030066AC08 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				F0FC079920FF00F50066AC08 /* surgefinder.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		F01C211420D582E8009C9012 /* Fairfares.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Fairfares.entitlements; sourceTree = "<group>"; };
@@ -33,10 +59,21 @@
 		F0EB31C61D3F259D002F900C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F0EB31CB1D3F259D002F900C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F0EB31D81D3F27DE002F900C /* Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Logo.png; path = Images/Logo.png; sourceTree = SOURCE_ROOT; };
+		F0FC076120FEFC030066AC08 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
+		F0FC078220FF00F40066AC08 /* surgefinder.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = surgefinder.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0FC078420FF00F40066AC08 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
+		F0FC078620FF00F50066AC08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		F0EB31B91D3F259D002F900C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0FC077F20FF00F40066AC08 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -51,6 +88,8 @@
 			children = (
 				F0EB31D31D3F25E6002F900C /* Images */,
 				F0EB31BE1D3F259D002F900C /* Fairfares */,
+				F0FC078320FF00F40066AC08 /* surgefinder */,
+				F0FC076020FEFC030066AC08 /* Frameworks */,
 				F0EB31BD1D3F259D002F900C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -59,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				F0EB31BC1D3F259D002F900C /* Fairfares.app */,
+				F0FC078220FF00F40066AC08 /* surgefinder.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -89,6 +129,23 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
+		F0FC076020FEFC030066AC08 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F0FC076120FEFC030066AC08 /* IntentsUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F0FC078320FF00F40066AC08 /* surgefinder */ = {
+			isa = PBXGroup;
+			children = (
+				F0FC078420FF00F40066AC08 /* IntentHandler.swift */,
+				F0FC078620FF00F50066AC08 /* Info.plist */,
+			);
+			path = surgefinder;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -99,15 +156,34 @@
 				F0EB31B81D3F259D002F900C /* Sources */,
 				F0EB31B91D3F259D002F900C /* Frameworks */,
 				F0EB31BA1D3F259D002F900C /* Resources */,
+				F0FC077620FEFC030066AC08 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				F0FC079820FF00F50066AC08 /* PBXTargetDependency */,
 			);
 			name = Fairfares;
 			productName = Fairfares;
 			productReference = F0EB31BC1D3F259D002F900C /* Fairfares.app */;
 			productType = "com.apple.product-type.application";
+		};
+		F0FC078120FF00F40066AC08 /* surgefinder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F0FC079D20FF00F50066AC08 /* Build configuration list for PBXNativeTarget "surgefinder" */;
+			buildPhases = (
+				F0FC077E20FF00F40066AC08 /* Sources */,
+				F0FC077F20FF00F40066AC08 /* Frameworks */,
+				F0FC078020FF00F40066AC08 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = surgefinder;
+			productName = surgefinder;
+			productReference = F0FC078220FF00F40066AC08 /* surgefinder.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -115,7 +191,7 @@
 		F0EB31B41D3F259D002F900C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0730;
+				LastSwiftUpdateCheck = 0940;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = Molson;
 				TargetAttributes = {
@@ -126,7 +202,15 @@
 							com.apple.ClassKit = {
 								enabled = 0;
 							};
+							com.apple.Siri = {
+								enabled = 1;
+							};
 						};
+					};
+					F0FC078120FF00F40066AC08 = {
+						CreatedOnToolsVersion = 9.4.1;
+						DevelopmentTeam = TH5V2K4K28;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -144,6 +228,7 @@
 			projectRoot = "";
 			targets = (
 				F0EB31BB1D3F259D002F900C /* Fairfares */,
+				F0FC078120FF00F40066AC08 /* surgefinder */,
 			);
 		};
 /* End PBXProject section */
@@ -164,6 +249,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F0FC078020FF00F40066AC08 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -176,7 +268,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F0FC077E20FF00F40066AC08 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0FC078520FF00F40066AC08 /* IntentHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F0FC079820FF00F50066AC08 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F0FC078120FF00F40066AC08 /* surgefinder */;
+			targetProxy = F0FC079720FF00F50066AC08 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		F0EB31CC1D3F259D002F900C /* Debug */ = {
@@ -226,7 +334,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -276,7 +384,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -288,9 +396,13 @@
 		F0EB31CF1D3F259D002F900C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Fairfares/Fairfares.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = TH5V2K4K28;
 				INFOPLIST_FILE = Fairfares/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.molson.fairfares;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -300,12 +412,64 @@
 		F0EB31D01D3F259D002F900C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Fairfares/Fairfares.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = TH5V2K4K28;
 				INFOPLIST_FILE = Fairfares/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.molson.fairfares;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		F0FC079E20FF00F50066AC08 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TH5V2K4K28;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = surgefinder/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.molson.fairfares.surgefinder;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		F0FC079F20FF00F50066AC08 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TH5V2K4K28;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = surgefinder/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.molson.fairfares.surgefinder;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -326,6 +490,15 @@
 			buildConfigurations = (
 				F0EB31CF1D3F259D002F900C /* Debug */,
 				F0EB31D01D3F259D002F900C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F0FC079D20FF00F50066AC08 /* Build configuration list for PBXNativeTarget "surgefinder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F0FC079E20FF00F50066AC08 /* Debug */,
+				F0FC079F20FF00F50066AC08 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
