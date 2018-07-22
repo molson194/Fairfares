@@ -13,11 +13,39 @@
 		F0B15C201D6608EE0037AEE5 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F0B15C1D1D6608EE0037AEE5 /* Icon.png */; };
 		F0B15C211D6608EE0037AEE5 /* Screenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = F0B15C1E1D6608EE0037AEE5 /* Screenshot.png */; };
 		F0B15C221D6608EE0037AEE5 /* Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = F0B15C1F1D6608EE0037AEE5 /* Splash.png */; };
+		F0C75D532103D5A8002C1030 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0C75D522103D5A8002C1030 /* NotificationCenter.framework */; };
+		F0C75D562103D5A8002C1030 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C75D552103D5A8002C1030 /* TodayViewController.swift */; };
+		F0C75D592103D5A9002C1030 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0C75D572103D5A8002C1030 /* MainInterface.storyboard */; };
+		F0C75D5D2103D5A9002C1030 /* SurgeWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F0C75D502103D5A8002C1030 /* SurgeWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F0EB31C01D3F259D002F900C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EB31BF1D3F259D002F900C /* AppDelegate.swift */; };
 		F0EB31C21D3F259D002F900C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EB31C11D3F259D002F900C /* ViewController.swift */; };
 		F0EB31C71D3F259D002F900C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0EB31C61D3F259D002F900C /* Assets.xcassets */; };
 		F0EB31D91D3F27DE002F900C /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = F0EB31D81D3F27DE002F900C /* Logo.png */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F0C75D5B2103D5A9002C1030 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F0EB31B41D3F259D002F900C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F0C75D4F2103D5A8002C1030;
+			remoteInfo = SurgeWidget;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F0C75D612103D5A9002C1030 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				F0C75D5D2103D5A9002C1030 /* SurgeWidget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		F01C211420D582E8009C9012 /* Fairfares.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Fairfares.entitlements; sourceTree = "<group>"; };
@@ -27,6 +55,11 @@
 		F0B15C1D1D6608EE0037AEE5 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Images/Icon.png; sourceTree = "<group>"; };
 		F0B15C1E1D6608EE0037AEE5 /* Screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Screenshot.png; path = Images/Screenshot.png; sourceTree = "<group>"; };
 		F0B15C1F1D6608EE0037AEE5 /* Splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Splash.png; path = Images/Splash.png; sourceTree = "<group>"; };
+		F0C75D502103D5A8002C1030 /* SurgeWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SurgeWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0C75D522103D5A8002C1030 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		F0C75D552103D5A8002C1030 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		F0C75D582103D5A8002C1030 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		F0C75D5A2103D5A9002C1030 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F0EB31BC1D3F259D002F900C /* Fairfares.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fairfares.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0EB31BF1D3F259D002F900C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0EB31C11D3F259D002F900C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,6 +69,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		F0C75D4D2103D5A8002C1030 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0C75D532103D5A8002C1030 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F0EB31B91D3F259D002F900C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -46,11 +87,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F0C75D512103D5A8002C1030 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F0C75D522103D5A8002C1030 /* NotificationCenter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F0C75D542103D5A8002C1030 /* SurgeWidget */ = {
+			isa = PBXGroup;
+			children = (
+				F0C75D552103D5A8002C1030 /* TodayViewController.swift */,
+				F0C75D572103D5A8002C1030 /* MainInterface.storyboard */,
+				F0C75D5A2103D5A9002C1030 /* Info.plist */,
+			);
+			path = SurgeWidget;
+			sourceTree = "<group>";
+		};
 		F0EB31B31D3F259D002F900C = {
 			isa = PBXGroup;
 			children = (
 				F0EB31D31D3F25E6002F900C /* Images */,
 				F0EB31BE1D3F259D002F900C /* Fairfares */,
+				F0C75D542103D5A8002C1030 /* SurgeWidget */,
+				F0C75D512103D5A8002C1030 /* Frameworks */,
 				F0EB31BD1D3F259D002F900C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -59,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				F0EB31BC1D3F259D002F900C /* Fairfares.app */,
+				F0C75D502103D5A8002C1030 /* SurgeWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -92,6 +154,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		F0C75D4F2103D5A8002C1030 /* SurgeWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F0C75D602103D5A9002C1030 /* Build configuration list for PBXNativeTarget "SurgeWidget" */;
+			buildPhases = (
+				F0C75D4C2103D5A8002C1030 /* Sources */,
+				F0C75D4D2103D5A8002C1030 /* Frameworks */,
+				F0C75D4E2103D5A8002C1030 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SurgeWidget;
+			productName = SurgeWidget;
+			productReference = F0C75D502103D5A8002C1030 /* SurgeWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		F0EB31BB1D3F259D002F900C /* Fairfares */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F0EB31CE1D3F259D002F900C /* Build configuration list for PBXNativeTarget "Fairfares" */;
@@ -99,10 +178,12 @@
 				F0EB31B81D3F259D002F900C /* Sources */,
 				F0EB31B91D3F259D002F900C /* Frameworks */,
 				F0EB31BA1D3F259D002F900C /* Resources */,
+				F0C75D612103D5A9002C1030 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				F0C75D5C2103D5A9002C1030 /* PBXTargetDependency */,
 			);
 			name = Fairfares;
 			productName = Fairfares;
@@ -115,10 +196,15 @@
 		F0EB31B41D3F259D002F900C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0730;
+				LastSwiftUpdateCheck = 0940;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = Molson;
 				TargetAttributes = {
+					F0C75D4F2103D5A8002C1030 = {
+						CreatedOnToolsVersion = 9.4.1;
+						DevelopmentTeam = TH5V2K4K28;
+						ProvisioningStyle = Automatic;
+					};
 					F0EB31BB1D3F259D002F900C = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = TH5V2K4K28;
@@ -144,11 +230,20 @@
 			projectRoot = "";
 			targets = (
 				F0EB31BB1D3F259D002F900C /* Fairfares */,
+				F0C75D4F2103D5A8002C1030 /* SurgeWidget */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		F0C75D4E2103D5A8002C1030 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0C75D592103D5A9002C1030 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F0EB31BA1D3F259D002F900C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -167,6 +262,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		F0C75D4C2103D5A8002C1030 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0C75D562103D5A8002C1030 /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F0EB31B81D3F259D002F900C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -178,7 +281,74 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		F0C75D5C2103D5A9002C1030 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F0C75D4F2103D5A8002C1030 /* SurgeWidget */;
+			targetProxy = F0C75D5B2103D5A9002C1030 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F0C75D572103D5A8002C1030 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F0C75D582103D5A8002C1030 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		F0C75D5E2103D5A9002C1030 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TH5V2K4K28;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = SurgeWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.molson.fairfares.SurgeWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F0C75D5F2103D5A9002C1030 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TH5V2K4K28;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = SurgeWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.molson.fairfares.SurgeWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		F0EB31CC1D3F259D002F900C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -288,7 +458,9 @@
 		F0EB31CF1D3F259D002F900C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = TH5V2K4K28;
 				INFOPLIST_FILE = Fairfares/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -300,7 +472,9 @@
 		F0EB31D01D3F259D002F900C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = TH5V2K4K28;
 				INFOPLIST_FILE = Fairfares/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -312,6 +486,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		F0C75D602103D5A9002C1030 /* Build configuration list for PBXNativeTarget "SurgeWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F0C75D5E2103D5A9002C1030 /* Debug */,
+				F0C75D5F2103D5A9002C1030 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F0EB31B71D3F259D002F900C /* Build configuration list for PBXProject "Fairfares" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
