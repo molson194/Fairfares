@@ -12,66 +12,12 @@ import CoreLocation
 class ViewController: UIViewController, CLLocationManagerDelegate {
     
     var locManager : CLLocationManager!
-    var uberSurge : UILabel!
-    var lyftSurge : UILabel!
+    @IBOutlet weak var uberSurge: UIButton!
+    @IBOutlet weak var lyftSurge: UIButton!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let refreshControl = UIRefreshControl()
-        let scrollView = UIScrollView.init(frame: self.view.frame)
-        refreshControl.addTarget(self, action: #selector(refreshView), for: .valueChanged)
-        scrollView.refreshControl = refreshControl
-        
-        let bounds = UIScreen.main.bounds
-        let buttonWidth = bounds.width - 20
-        var buttonHeight = 0.4*bounds.height
-        if bounds.height == 812 || bounds.height == 2436 { // iPhoneX TODO
-            buttonHeight = bounds.height - 500
-        }
-        
-        let logoView = UIImageView(frame: CGRect(x: (bounds.width-buttonWidth)/2, y: 0, width: bounds.width, height: 0.1*bounds.height))
-        logoView.image = UIImage(named: "Logo.png")
-        logoView.contentMode = .scaleAspectFit
-        scrollView.addSubview(logoView)
-        
-        let uberButton = UIButton(frame: CGRect(x:(bounds.width-buttonWidth)/2,y:0.125*bounds.height,width:buttonWidth,height:buttonHeight))
-        uberButton.backgroundColor = UIColor.black
-        uberButton.layer.cornerRadius = 15
-        uberButton.clipsToBounds = true
-        uberButton.addTarget(self, action: #selector(openUber), for: .touchUpInside)
-        
-        let uberLogo = UIImageView(frame: CGRect(x:buttonWidth/6, y:0.2*buttonHeight, width:4/6*buttonWidth, height:0.3*buttonHeight))
-        uberLogo.image = UIImage(named: "uber.png")
-        uberButton.addSubview(uberLogo)
-        
-        uberSurge = UILabel(frame: CGRect(x:buttonWidth/6, y:0.5*buttonHeight, width:4/6*buttonWidth, height:0.3*buttonHeight))
-        uberSurge.text = "?.??x"
-        uberSurge.textColor = UIColor.white
-        uberSurge.textAlignment = NSTextAlignment.center;
-        uberSurge.font = uberSurge.font.withSize(bounds.height/10)
-        uberButton.addSubview(uberSurge)
-        
-        scrollView.addSubview(uberButton)
-        
-        let lyftButton = UIButton(frame: CGRect(x:(bounds.width-buttonWidth)/2,y:0.55*bounds.height,width:buttonWidth,height:buttonHeight))
-        lyftButton.backgroundColor = UIColor.magenta
-        lyftButton.layer.cornerRadius = 15
-        lyftButton.clipsToBounds = true
-        lyftButton.addTarget(self, action: #selector(openLyft), for: .touchUpInside)
-        
-        let lyftLogo = UIImageView(frame: CGRect(x:0.25*buttonWidth, y:0.2*buttonHeight, width:0.5*buttonWidth, height:0.3*buttonHeight))
-        lyftLogo.image = UIImage(named: "lyft.png")
-        lyftButton.addSubview(lyftLogo)
-        
-        lyftSurge = UILabel(frame: CGRect(x:buttonWidth/6, y:0.5*buttonHeight, width:4/6*buttonWidth, height:0.3*buttonHeight))
-        lyftSurge.text = "?.??x"
-        lyftSurge.textColor = UIColor.white
-        lyftSurge.textAlignment = NSTextAlignment.center
-        lyftSurge.font = lyftSurge.font.withSize(bounds.height/10)
-        lyftButton.addSubview(lyftSurge)
-        
-        scrollView.addSubview(lyftButton)
         
         locManager = CLLocationManager()
         locManager.requestWhenInUseAuthorization()
@@ -79,7 +25,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         locManager.desiredAccuracy = kCLLocationAccuracyBest
         locManager.startUpdatingLocation()
         
-        self.view.addSubview(scrollView)
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshView), for: .valueChanged)
+        scrollView.refreshControl = refreshControl
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        locManager.startUpdatingLocation()
     }
     
     @objc func refreshView(sender: UIRefreshControl) {
@@ -110,7 +62,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                         if carName == "UberX" || carName == "uberX" {
                             let uSurge = uberCar["surge_multiplier"] as! Double
                             DispatchQueue.main.async {
-                                self.uberSurge.text = String(format: "%.2f", uSurge) + "x"
+                                self.uberSurge.setTitle(String(format: "%.2f", uSurge) + "x", for: .normal)
                                 self.uberSurge.setNeedsDisplay()
                             }
                         }
@@ -155,7 +107,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                                         let lSurge = lSurgeString.dropLast()
                                         let lSurgeFloat = Float(lSurge)!/100
                                         DispatchQueue.main.async {
-                                            self.lyftSurge.text = String(format: "%.2f", 1+lSurgeFloat) + "x"
+                                            self.lyftSurge.setTitle(String(format: "%.2f", 1+lSurgeFloat) + "x", for: .normal)
                                             self.lyftSurge.setNeedsDisplay()
                                         }
                                     }
@@ -174,7 +126,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
-    @objc func openUber() {
+    @IBAction func openUber() {
         print("Open uber")
         let uberUrl  = URL(string: "uber://app")!
         let uberStore = URL(string: "itms-apps://itunes.apple.com/us/app/uber/id368677368?mt=8")!
@@ -185,7 +137,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
-    @objc func openLyft() {
+    @IBAction func openLyft() {
         print("Open Lyft")
         let lyftUrl  = URL(string: "lyft://app")!
         let lyftStore = URL(string: "itms-apps://itunes.apple.com/us/app/lyft-taxi-app-alternative/id529379082?mt=8")!

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F091A804210E34AE005639D9 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F091A803210E34AE005639D9 /* MainInterface.storyboard */; };
+		F091A806210E3AF3005639D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F091A805210E3AF3005639D9 /* AppDelegate.swift */; };
 		F09889D11D64F6A2005416E7 /* lyft.png in Resources */ = {isa = PBXBuildFile; fileRef = F09889CF1D64F6A2005416E7 /* lyft.png */; };
 		F09889D21D64F6A2005416E7 /* uber.png in Resources */ = {isa = PBXBuildFile; fileRef = F09889D01D64F6A2005416E7 /* uber.png */; };
 		F09A621B20D5845C00E946E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F09A621A20D5845C00E946E9 /* LaunchScreen.storyboard */; };
@@ -17,7 +19,6 @@
 		F0C75D562103D5A8002C1030 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C75D552103D5A8002C1030 /* TodayViewController.swift */; };
 		F0C75D592103D5A9002C1030 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0C75D572103D5A8002C1030 /* MainInterface.storyboard */; };
 		F0C75D5D2103D5A9002C1030 /* SurgeWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F0C75D502103D5A8002C1030 /* SurgeWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		F0EB31C01D3F259D002F900C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EB31BF1D3F259D002F900C /* AppDelegate.swift */; };
 		F0EB31C21D3F259D002F900C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EB31C11D3F259D002F900C /* ViewController.swift */; };
 		F0EB31C71D3F259D002F900C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0EB31C61D3F259D002F900C /* Assets.xcassets */; };
 		F0EB31D91D3F27DE002F900C /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = F0EB31D81D3F27DE002F900C /* Logo.png */; };
@@ -49,6 +50,8 @@
 
 /* Begin PBXFileReference section */
 		F01C211420D582E8009C9012 /* Fairfares.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Fairfares.entitlements; sourceTree = "<group>"; };
+		F091A803210E34AE005639D9 /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
+		F091A805210E3AF3005639D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F09889CF1D64F6A2005416E7 /* lyft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lyft.png; path = Images/lyft.png; sourceTree = SOURCE_ROOT; };
 		F09889D01D64F6A2005416E7 /* uber.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = uber.png; path = Images/uber.png; sourceTree = SOURCE_ROOT; };
 		F09A621A20D5845C00E946E9 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -61,7 +64,6 @@
 		F0C75D582103D5A8002C1030 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		F0C75D5A2103D5A9002C1030 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F0EB31BC1D3F259D002F900C /* Fairfares.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fairfares.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F0EB31BF1D3F259D002F900C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0EB31C11D3F259D002F900C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F0EB31C61D3F259D002F900C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F0EB31CB1D3F259D002F900C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -128,8 +130,9 @@
 		F0EB31BE1D3F259D002F900C /* Fairfares */ = {
 			isa = PBXGroup;
 			children = (
+				F091A805210E3AF3005639D9 /* AppDelegate.swift */,
 				F01C211420D582E8009C9012 /* Fairfares.entitlements */,
-				F0EB31BF1D3F259D002F900C /* AppDelegate.swift */,
+				F091A803210E34AE005639D9 /* MainInterface.storyboard */,
 				F0EB31C11D3F259D002F900C /* ViewController.swift */,
 				F0EB31C61D3F259D002F900C /* Assets.xcassets */,
 				F0EB31CB1D3F259D002F900C /* Info.plist */,
@@ -252,6 +255,7 @@
 				F09A621B20D5845C00E946E9 /* LaunchScreen.storyboard in Resources */,
 				F09889D21D64F6A2005416E7 /* uber.png in Resources */,
 				F0B15C201D6608EE0037AEE5 /* Icon.png in Resources */,
+				F091A804210E34AE005639D9 /* MainInterface.storyboard in Resources */,
 				F0B15C221D6608EE0037AEE5 /* Splash.png in Resources */,
 				F0EB31C71D3F259D002F900C /* Assets.xcassets in Resources */,
 				F09889D11D64F6A2005416E7 /* lyft.png in Resources */,
@@ -274,8 +278,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F091A806210E3AF3005639D9 /* AppDelegate.swift in Sources */,
 				F0EB31C21D3F259D002F900C /* ViewController.swift in Sources */,
-				F0EB31C01D3F259D002F900C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

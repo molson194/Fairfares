@@ -12,20 +12,5 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    let rootView = ViewController()
-    
-    func applicationDidFinishLaunching(_ application: UIApplication) {
-        self.window = UIWindow()
-        
-        if let window = self.window {
-            window.rootViewController = rootView
-            window.backgroundColor = UIColor.white
-            window.makeKeyAndVisible()
-        }
-    }
-    
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        rootView.locManager.startUpdatingLocation()
-    }
 }
 
