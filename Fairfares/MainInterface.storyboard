@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="A2N-gf-hoW">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,33 +16,85 @@
             <objects>
                 <viewController id="A2N-gf-hoW" customClass="ViewController" customModule="Fairfares" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="P6j-Vs-wP0">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LYQ-5p-GFL">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LYQ-5p-GFL">
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gL1-fM-D8r">
-                                        <rect key="frame" x="16" y="28" width="343" height="293"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gL1-fM-D8r">
+                                        <rect key="frame" x="18.666666666666657" y="10" width="338" height="330"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="120"/>
+                                        <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="80"/>
+                                        <state key="normal" title="?.??x">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="openUber" destination="A2N-gf-hoW" eventType="touchUpInside" id="cHy-WZ-qEO"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Oa-uV-YQc">
-                                        <rect key="frame" x="16" y="346" width="343" height="290"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Uber.png" translatesAutoresizingMaskIntoConstraints="NO" id="R3E-5k-JiQ">
+                                        <rect key="frame" x="18.666666666666657" y="241.66666666666671" width="338" height="98.333333333333343"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Oa-uV-YQc">
+                                        <rect key="frame" x="18.666666666666657" y="370" width="338" height="331"/>
+                                        <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="120"/>
+                                        <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="80"/>
+                                        <state key="normal" title="?.??x">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="openLyft" destination="A2N-gf-hoW" eventType="touchUpInside" id="nd4-2l-NX2"/>
                                         </connections>
                                     </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Lyft.png" translatesAutoresizingMaskIntoConstraints="NO" id="haQ-T6-yJA">
+                                        <rect key="frame" x="18.666666666666657" y="602.33333333333337" width="338" height="98.666666666666629"/>
+                                    </imageView>
                                 </subviews>
+                                <color key="backgroundColor" red="0.84313725490196079" green="0.86274509803921573" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="gL1-fM-D8r" secondAttribute="trailing" id="0m3-QS-pFU"/>
+                                    <constraint firstItem="5Oa-uV-YQc" firstAttribute="leading" secondItem="haQ-T6-yJA" secondAttribute="leading" id="514-LT-H90"/>
+                                    <constraint firstItem="5Oa-uV-YQc" firstAttribute="top" secondItem="R3E-5k-JiQ" secondAttribute="bottom" constant="30" id="6mp-So-13z"/>
+                                    <constraint firstItem="5Oa-uV-YQc" firstAttribute="width" secondItem="LYQ-5p-GFL" secondAttribute="width" multiplier="0.9" id="CEc-iL-Dli"/>
+                                    <constraint firstItem="R3E-5k-JiQ" firstAttribute="bottom" secondItem="gL1-fM-D8r" secondAttribute="bottom" id="Ite-Gd-RbR"/>
+                                    <constraint firstItem="5Oa-uV-YQc" firstAttribute="bottom" secondItem="haQ-T6-yJA" secondAttribute="bottom" id="JfA-yc-b9v"/>
+                                    <constraint firstItem="haQ-T6-yJA" firstAttribute="height" secondItem="5Oa-uV-YQc" secondAttribute="height" multiplier="0.3" id="OLY-uP-x6e"/>
+                                    <constraint firstItem="gL1-fM-D8r" firstAttribute="centerX" secondItem="LYQ-5p-GFL" secondAttribute="centerX" id="Ovv-2m-rhD"/>
+                                    <constraint firstItem="R3E-5k-JiQ" firstAttribute="trailing" secondItem="5Oa-uV-YQc" secondAttribute="trailing" id="R6q-T9-5WW"/>
+                                    <constraint firstItem="5Oa-uV-YQc" firstAttribute="height" secondItem="LYQ-5p-GFL" secondAttribute="height" multiplier="0.45" id="V7d-Ot-fhK"/>
+                                    <constraint firstItem="gL1-fM-D8r" firstAttribute="top" secondItem="LYQ-5p-GFL" secondAttribute="top" constant="10" id="ZJY-xY-srC"/>
+                                    <constraint firstItem="gL1-fM-D8r" firstAttribute="trailing" secondItem="R3E-5k-JiQ" secondAttribute="trailing" id="c82-Xc-c6e"/>
+                                    <constraint firstAttribute="bottom" secondItem="5Oa-uV-YQc" secondAttribute="bottom" constant="53" id="cjV-eo-cwC"/>
+                                    <constraint firstItem="gL1-fM-D8r" firstAttribute="height" secondItem="LYQ-5p-GFL" secondAttribute="height" multiplier="0.45" id="eiR-XM-u00"/>
+                                    <constraint firstItem="5Oa-uV-YQc" firstAttribute="trailing" secondItem="haQ-T6-yJA" secondAttribute="trailing" id="iEd-QW-FSD"/>
+                                    <constraint firstItem="gL1-fM-D8r" firstAttribute="width" secondItem="LYQ-5p-GFL" secondAttribute="width" multiplier="0.9" id="nCL-WY-X0l"/>
+                                    <constraint firstItem="R3E-5k-JiQ" firstAttribute="height" secondItem="gL1-fM-D8r" secondAttribute="height" multiplier="0.3" id="oeY-22-Gcg"/>
+                                    <constraint firstItem="R3E-5k-JiQ" firstAttribute="leading" secondItem="haQ-T6-yJA" secondAttribute="leading" id="pY5-Ze-4MV"/>
+                                    <constraint firstItem="gL1-fM-D8r" firstAttribute="leading" secondItem="R3E-5k-JiQ" secondAttribute="leading" id="xAK-xT-XAh"/>
+                                </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.84313725490196079" green="0.86274509803921573" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="LYQ-5p-GFL" firstAttribute="leading" secondItem="AsE-io-n4y" secondAttribute="leading" id="Dwy-Gx-pFV"/>
+                            <constraint firstItem="LYQ-5p-GFL" firstAttribute="centerX" secondItem="AsE-io-n4y" secondAttribute="centerX" id="QvQ-X7-a46"/>
+                            <constraint firstItem="LYQ-5p-GFL" firstAttribute="height" secondItem="AsE-io-n4y" secondAttribute="height" id="Ypo-Kr-Cby"/>
+                            <constraint firstItem="LYQ-5p-GFL" firstAttribute="width" secondItem="AsE-io-n4y" secondAttribute="width" id="fO2-xt-nhm"/>
+                            <constraint firstItem="LYQ-5p-GFL" firstAttribute="top" secondItem="AsE-io-n4y" secondAttribute="top" id="q2G-pf-fsN"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="AsE-io-n4y"/>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -53,7 +106,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wjg-AD-TsW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="61.600000000000001" y="135.38230884557723"/>
+            <point key="canvasLocation" x="60" y="135.22167487684729"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Lyft.png" width="3827" height="2517"/>
+        <image name="Uber.png" width="2192" height="487"/>
+    </resources>
 </document>

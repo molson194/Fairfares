@@ -16,6 +16,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var lyftSurge: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
     
+    let uberGradient: CAGradientLayer = CAGradientLayer()
+    let lyftGradient: CAGradientLayer = CAGradientLayer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,6 +31,45 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshView), for: .valueChanged)
         scrollView.refreshControl = refreshControl
+        
+        uberGradient.colors = [UIColor.black.cgColor, UIColor.black.cgColor, UIColor.white.cgColor, UIColor.white.cgColor]
+        uberGradient.locations = [0, 0.7, 0.7, 1.0]
+        uberGradient.startPoint = CGPoint(x: 0.5, y: 0)
+        uberGradient.endPoint = CGPoint(x: 0.5, y: 1)
+        uberGradient.cornerRadius = uberSurge.layer.cornerRadius
+        uberGradient.borderColor = UIColor.black.cgColor
+        uberGradient.borderWidth = 5.0
+        uberSurge.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3).cgColor
+        uberSurge.layer.shadowOffset = CGSize(width: 0.0, height: 8.0)
+        uberSurge.layer.shadowOpacity = 1.0
+        uberSurge.layer.shadowRadius = 0.0
+        uberSurge.layer.masksToBounds = false
+        uberSurge.titleLabel?.minimumScaleFactor = 0.5
+        uberSurge.titleLabel?.adjustsFontSizeToFitWidth = true
+        
+        let pinkColor = UIColor(red:1.00, green:0.00, blue:0.73, alpha:1.0).cgColor
+        lyftGradient.colors = [pinkColor, pinkColor, UIColor.white.cgColor, UIColor.white.cgColor]
+        lyftGradient.locations = [0, 0.7, 0.7, 1.0]
+        lyftGradient.startPoint = CGPoint(x: 0.5, y: 0)
+        lyftGradient.endPoint = CGPoint(x: 0.5, y: 1)
+        lyftGradient.cornerRadius = lyftSurge.layer.cornerRadius
+        lyftGradient.borderColor = pinkColor
+        lyftGradient.borderWidth = 5.0
+        lyftSurge.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3).cgColor
+        lyftSurge.layer.shadowOffset = CGSize(width: 0.0, height: 8.0)
+        lyftSurge.layer.shadowOpacity = 1.0
+        lyftSurge.layer.shadowRadius = 0.0
+        lyftSurge.layer.masksToBounds = false
+        lyftSurge.titleLabel?.minimumScaleFactor = 0.5
+        lyftSurge.titleLabel?.adjustsFontSizeToFitWidth = true
+    }
+    
+    override func viewDidLayoutSubviews() {
+        uberGradient.frame = uberSurge.bounds
+        uberSurge.layer.insertSublayer(uberGradient, at: 0)
+
+        lyftGradient.frame = lyftSurge.bounds
+        lyftSurge.layer.insertSublayer(lyftGradient, at: 0)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -63,6 +105,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                             let uSurge = uberCar["surge_multiplier"] as! Double
                             DispatchQueue.main.async {
                                 self.uberSurge.setTitle(String(format: "%.2f", uSurge) + "x", for: .normal)
+                                self.uberSurge.titleLabel?.minimumScaleFactor = 0.5
+                                self.uberSurge.titleLabel?.adjustsFontSizeToFitWidth = true
                                 self.uberSurge.setNeedsDisplay()
                             }
                         }
@@ -108,6 +152,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                                         let lSurgeFloat = Float(lSurge)!/100
                                         DispatchQueue.main.async {
                                             self.lyftSurge.setTitle(String(format: "%.2f", 1+lSurgeFloat) + "x", for: .normal)
+                                            self.lyftSurge.titleLabel?.minimumScaleFactor = 0.5
+                                            self.lyftSurge.titleLabel?.adjustsFontSizeToFitWidth = true
                                             self.lyftSurge.setNeedsDisplay()
                                         }
                                     }

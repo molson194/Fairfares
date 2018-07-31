@@ -67,6 +67,8 @@ class TodayViewController: UIViewController, NCWidgetProviding, CLLocationManage
                             let uSurge = uberCar["surge_multiplier"] as! Double
                             DispatchQueue.main.async {
                                 self.uberSurge.setTitle(String(format: "%.2f", uSurge) + "x", for: .normal)
+                                self.uberSurge.titleLabel?.minimumScaleFactor = 0.5
+                                self.uberSurge.titleLabel?.adjustsFontSizeToFitWidth = true
                                 self.uberSurge.setNeedsDisplay()
                             }
                         }
@@ -112,6 +114,8 @@ class TodayViewController: UIViewController, NCWidgetProviding, CLLocationManage
                                         let lSurgeFloat = Float(lSurge)!/100
                                         DispatchQueue.main.async {
                                             self.lyftSurge.setTitle(String(format: "%.2f", 1+lSurgeFloat) + "x", for: .normal)
+                                            self.lyftSurge.titleLabel?.minimumScaleFactor = 0.5
+                                            self.lyftSurge.titleLabel?.adjustsFontSizeToFitWidth = true
                                             self.lyftSurge.setNeedsDisplay()
                                         }
                                     }

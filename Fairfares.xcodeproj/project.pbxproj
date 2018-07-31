@@ -7,21 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F02890B0210EDA9100491C45 /* Uber.png in Resources */ = {isa = PBXBuildFile; fileRef = F02890AF210EDA9100491C45 /* Uber.png */; };
+		F02890B2210EDB7B00491C45 /* Lyft.png in Resources */ = {isa = PBXBuildFile; fileRef = F02890B1210EDB7A00491C45 /* Lyft.png */; };
+		F02890B4210EDC9300491C45 /* Splash.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F02890B3210EDC9200491C45 /* Splash.jpeg */; };
 		F091A804210E34AE005639D9 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F091A803210E34AE005639D9 /* MainInterface.storyboard */; };
 		F091A806210E3AF3005639D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F091A805210E3AF3005639D9 /* AppDelegate.swift */; };
-		F09889D11D64F6A2005416E7 /* lyft.png in Resources */ = {isa = PBXBuildFile; fileRef = F09889CF1D64F6A2005416E7 /* lyft.png */; };
-		F09889D21D64F6A2005416E7 /* uber.png in Resources */ = {isa = PBXBuildFile; fileRef = F09889D01D64F6A2005416E7 /* uber.png */; };
 		F09A621B20D5845C00E946E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F09A621A20D5845C00E946E9 /* LaunchScreen.storyboard */; };
 		F0B15C201D6608EE0037AEE5 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F0B15C1D1D6608EE0037AEE5 /* Icon.png */; };
-		F0B15C211D6608EE0037AEE5 /* Screenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = F0B15C1E1D6608EE0037AEE5 /* Screenshot.png */; };
-		F0B15C221D6608EE0037AEE5 /* Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = F0B15C1F1D6608EE0037AEE5 /* Splash.png */; };
 		F0C75D532103D5A8002C1030 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0C75D522103D5A8002C1030 /* NotificationCenter.framework */; };
 		F0C75D562103D5A8002C1030 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C75D552103D5A8002C1030 /* TodayViewController.swift */; };
 		F0C75D592103D5A9002C1030 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0C75D572103D5A8002C1030 /* MainInterface.storyboard */; };
 		F0C75D5D2103D5A9002C1030 /* SurgeWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F0C75D502103D5A8002C1030 /* SurgeWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F0EB31C21D3F259D002F900C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EB31C11D3F259D002F900C /* ViewController.swift */; };
 		F0EB31C71D3F259D002F900C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0EB31C61D3F259D002F900C /* Assets.xcassets */; };
-		F0EB31D91D3F27DE002F900C /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = F0EB31D81D3F27DE002F900C /* Logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,14 +48,13 @@
 
 /* Begin PBXFileReference section */
 		F01C211420D582E8009C9012 /* Fairfares.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Fairfares.entitlements; sourceTree = "<group>"; };
+		F02890AF210EDA9100491C45 /* Uber.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Uber.png; path = Images/Uber.png; sourceTree = "<group>"; };
+		F02890B1210EDB7A00491C45 /* Lyft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Lyft.png; path = Images/Lyft.png; sourceTree = "<group>"; };
+		F02890B3210EDC9200491C45 /* Splash.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Splash.jpeg; path = Images/Splash.jpeg; sourceTree = "<group>"; };
 		F091A803210E34AE005639D9 /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 		F091A805210E3AF3005639D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F09889CF1D64F6A2005416E7 /* lyft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lyft.png; path = Images/lyft.png; sourceTree = SOURCE_ROOT; };
-		F09889D01D64F6A2005416E7 /* uber.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = uber.png; path = Images/uber.png; sourceTree = SOURCE_ROOT; };
 		F09A621A20D5845C00E946E9 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F0B15C1D1D6608EE0037AEE5 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Images/Icon.png; sourceTree = "<group>"; };
-		F0B15C1E1D6608EE0037AEE5 /* Screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Screenshot.png; path = Images/Screenshot.png; sourceTree = "<group>"; };
-		F0B15C1F1D6608EE0037AEE5 /* Splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Splash.png; path = Images/Splash.png; sourceTree = "<group>"; };
 		F0C75D502103D5A8002C1030 /* SurgeWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SurgeWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0C75D522103D5A8002C1030 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		F0C75D552103D5A8002C1030 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -67,7 +64,6 @@
 		F0EB31C11D3F259D002F900C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F0EB31C61D3F259D002F900C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F0EB31CB1D3F259D002F900C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F0EB31D81D3F27DE002F900C /* Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Logo.png; path = Images/Logo.png; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,12 +140,10 @@
 		F0EB31D31D3F25E6002F900C /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				F0EB31D81D3F27DE002F900C /* Logo.png */,
+				F02890AF210EDA9100491C45 /* Uber.png */,
 				F0B15C1D1D6608EE0037AEE5 /* Icon.png */,
-				F0B15C1E1D6608EE0037AEE5 /* Screenshot.png */,
-				F0B15C1F1D6608EE0037AEE5 /* Splash.png */,
-				F09889CF1D64F6A2005416E7 /* lyft.png */,
-				F09889D01D64F6A2005416E7 /* uber.png */,
+				F02890B3210EDC9200491C45 /* Splash.jpeg */,
+				F02890B1210EDB7A00491C45 /* Lyft.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -251,15 +245,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F0EB31D91D3F27DE002F900C /* Logo.png in Resources */,
 				F09A621B20D5845C00E946E9 /* LaunchScreen.storyboard in Resources */,
-				F09889D21D64F6A2005416E7 /* uber.png in Resources */,
 				F0B15C201D6608EE0037AEE5 /* Icon.png in Resources */,
+				F02890B2210EDB7B00491C45 /* Lyft.png in Resources */,
 				F091A804210E34AE005639D9 /* MainInterface.storyboard in Resources */,
-				F0B15C221D6608EE0037AEE5 /* Splash.png in Resources */,
+				F02890B4210EDC9300491C45 /* Splash.jpeg in Resources */,
+				F02890B0210EDA9100491C45 /* Uber.png in Resources */,
 				F0EB31C71D3F259D002F900C /* Assets.xcassets in Resources */,
-				F09889D11D64F6A2005416E7 /* lyft.png in Resources */,
-				F0B15C211D6608EE0037AEE5 /* Screenshot.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
