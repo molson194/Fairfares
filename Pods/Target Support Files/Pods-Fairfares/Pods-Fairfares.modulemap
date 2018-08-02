@@ -1,0 +1,6 @@
+framework module Pods_Fairfares {
+  umbrella header "Pods-Fairfares-umbrella.h"
+
+  export *
+  module * { export * }
+}

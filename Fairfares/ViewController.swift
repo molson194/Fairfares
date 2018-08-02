@@ -22,6 +22,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        GAI.sharedInstance().defaultTracker.send(GAIDictionaryBuilder.createEvent(withCategory: "App", action: "Load", label: nil, value: nil).build() as [NSObject : AnyObject])
+        
         locManager = CLLocationManager()
         locManager.requestWhenInUseAuthorization()
         locManager.delegate = self
@@ -70,6 +72,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 
         lyftGradient.frame = lyftSurge.bounds
         lyftSurge.layer.insertSublayer(lyftGradient, at: 0)
+        
+        scrollView.frame = UIScreen.main.bounds
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -77,6 +81,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     @objc func refreshView(sender: UIRefreshControl) {
+        GAI.sharedInstance().defaultTracker.send(GAIDictionaryBuilder.createEvent(withCategory: "App", action: "Refresh", label: nil, value: nil).build() as [NSObject : AnyObject])
+        
         locManager.startUpdatingLocation()
         sender.endRefreshing()
     }
@@ -174,6 +180,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBAction func openUber() {
         print("Open uber")
+        
+        let surgeString = "Uber:" + (uberSurge.titleLabel?.text!)! + "|Lyft:" + (lyftSurge.titleLabel?.text!)!
+        print(surgeString)
+        GAI.sharedInstance().defaultTracker.send(GAIDictionaryBuilder.createEvent(withCategory: "App", action: "Uber", label: surgeString, value: nil).build() as [NSObject : AnyObject])
+        
         let uberUrl  = URL(string: "uber://app")!
         let uberStore = URL(string: "itms-apps://itunes.apple.com/us/app/uber/id368677368?mt=8")!
         UIApplication.shared.open(uberUrl, options: [:]) { (success) in
@@ -185,6 +196,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBAction func openLyft() {
         print("Open Lyft")
+        
+        let surgeString = "Uber:" + (uberSurge.titleLabel?.text!)! + "|Lyft:" + (lyftSurge.titleLabel?.text!)!
+        print(surgeString)
+        GAI.sharedInstance().defaultTracker.send(GAIDictionaryBuilder.createEvent(withCategory: "App", action: "Lyft", label: surgeString, value: nil).build() as [NSObject : AnyObject])
+        
         let lyftUrl  = URL(string: "lyft://app")!
         let lyftStore = URL(string: "itms-apps://itunes.apple.com/us/app/lyft-taxi-app-alternative/id529379082?mt=8")!
         UIApplication.shared.open(lyftUrl, options: [:]) { (success) in

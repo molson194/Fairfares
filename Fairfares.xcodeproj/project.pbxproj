@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE416F255EA1093FE010FB2E /* Pods_SurgeWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7950A56BE188B9FE39561F70 /* Pods_SurgeWidget.framework */; };
+		D6E362A4A9C652B756118C17 /* Pods_Fairfares.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5F0635FB003BA05F734E57F /* Pods_Fairfares.framework */; };
+		F0052DD42112B1C60000BB34 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0052DD32112B1C50000BB34 /* NotificationCenter.framework */; };
 		F02890B0210EDA9100491C45 /* Uber.png in Resources */ = {isa = PBXBuildFile; fileRef = F02890AF210EDA9100491C45 /* Uber.png */; };
 		F02890B2210EDB7B00491C45 /* Lyft.png in Resources */ = {isa = PBXBuildFile; fileRef = F02890B1210EDB7A00491C45 /* Lyft.png */; };
 		F02890B4210EDC9300491C45 /* Splash.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F02890B3210EDC9200491C45 /* Splash.jpeg */; };
@@ -14,7 +17,6 @@
 		F091A806210E3AF3005639D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F091A805210E3AF3005639D9 /* AppDelegate.swift */; };
 		F09A621B20D5845C00E946E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F09A621A20D5845C00E946E9 /* LaunchScreen.storyboard */; };
 		F0B15C201D6608EE0037AEE5 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F0B15C1D1D6608EE0037AEE5 /* Icon.png */; };
-		F0C75D532103D5A8002C1030 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0C75D522103D5A8002C1030 /* NotificationCenter.framework */; };
 		F0C75D562103D5A8002C1030 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C75D552103D5A8002C1030 /* TodayViewController.swift */; };
 		F0C75D592103D5A9002C1030 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0C75D572103D5A8002C1030 /* MainInterface.storyboard */; };
 		F0C75D5D2103D5A9002C1030 /* SurgeWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F0C75D502103D5A8002C1030 /* SurgeWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -47,6 +49,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		16A7854B40FB1098BC70108C /* Pods-SurgeWidget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SurgeWidget.release.xcconfig"; path = "Pods/Target Support Files/Pods-SurgeWidget/Pods-SurgeWidget.release.xcconfig"; sourceTree = "<group>"; };
+		7950A56BE188B9FE39561F70 /* Pods_SurgeWidget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SurgeWidget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A212243C63B5DB00CA565F45 /* Pods-Fairfares.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fairfares.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fairfares/Pods-Fairfares.debug.xcconfig"; sourceTree = "<group>"; };
+		C66E6945D5D3AAF8BA707E4E /* Pods-SurgeWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SurgeWidget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SurgeWidget/Pods-SurgeWidget.debug.xcconfig"; sourceTree = "<group>"; };
+		D5D7E24649136F34EB19B2F3 /* Pods-Fairfares.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fairfares.release.xcconfig"; path = "Pods/Target Support Files/Pods-Fairfares/Pods-Fairfares.release.xcconfig"; sourceTree = "<group>"; };
+		D5F0635FB003BA05F734E57F /* Pods_Fairfares.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fairfares.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0052DD22112B06F0000BB34 /* Fairfares-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Fairfares-Bridging-Header.h"; sourceTree = "<group>"; };
+		F0052DD32112B1C50000BB34 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		F00BBC5C21116ECF00E6E0EB /* Fairfares-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Fairfares-Bridging-Header.h"; sourceTree = "<group>"; };
 		F01C211420D582E8009C9012 /* Fairfares.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Fairfares.entitlements; sourceTree = "<group>"; };
 		F02890AF210EDA9100491C45 /* Uber.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Uber.png; path = Images/Uber.png; sourceTree = "<group>"; };
 		F02890B1210EDB7A00491C45 /* Lyft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Lyft.png; path = Images/Lyft.png; sourceTree = "<group>"; };
@@ -56,7 +67,6 @@
 		F09A621A20D5845C00E946E9 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F0B15C1D1D6608EE0037AEE5 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Images/Icon.png; sourceTree = "<group>"; };
 		F0C75D502103D5A8002C1030 /* SurgeWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SurgeWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		F0C75D522103D5A8002C1030 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		F0C75D552103D5A8002C1030 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		F0C75D582103D5A8002C1030 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		F0C75D5A2103D5A9002C1030 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -71,7 +81,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F0C75D532103D5A8002C1030 /* NotificationCenter.framework in Frameworks */,
+				F0052DD42112B1C60000BB34 /* NotificationCenter.framework in Frameworks */,
+				BE416F255EA1093FE010FB2E /* Pods_SurgeWidget.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,16 +90,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6E362A4A9C652B756118C17 /* Pods_Fairfares.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BFD4D93191CC77FA4C43DD84 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A212243C63B5DB00CA565F45 /* Pods-Fairfares.debug.xcconfig */,
+				D5D7E24649136F34EB19B2F3 /* Pods-Fairfares.release.xcconfig */,
+				C66E6945D5D3AAF8BA707E4E /* Pods-SurgeWidget.debug.xcconfig */,
+				16A7854B40FB1098BC70108C /* Pods-SurgeWidget.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		F0C75D512103D5A8002C1030 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F0C75D522103D5A8002C1030 /* NotificationCenter.framework */,
+				F0052DD32112B1C50000BB34 /* NotificationCenter.framework */,
+				D5F0635FB003BA05F734E57F /* Pods_Fairfares.framework */,
+				7950A56BE188B9FE39561F70 /* Pods_SurgeWidget.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -97,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				F0C75D552103D5A8002C1030 /* TodayViewController.swift */,
+				F0052DD22112B06F0000BB34 /* Fairfares-Bridging-Header.h */,
 				F0C75D572103D5A8002C1030 /* MainInterface.storyboard */,
 				F0C75D5A2103D5A9002C1030 /* Info.plist */,
 			);
@@ -111,6 +137,7 @@
 				F0C75D542103D5A8002C1030 /* SurgeWidget */,
 				F0C75D512103D5A8002C1030 /* Frameworks */,
 				F0EB31BD1D3F259D002F900C /* Products */,
+				BFD4D93191CC77FA4C43DD84 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				F091A805210E3AF3005639D9 /* AppDelegate.swift */,
+				F00BBC5C21116ECF00E6E0EB /* Fairfares-Bridging-Header.h */,
 				F01C211420D582E8009C9012 /* Fairfares.entitlements */,
 				F091A803210E34AE005639D9 /* MainInterface.storyboard */,
 				F0EB31C11D3F259D002F900C /* ViewController.swift */,
@@ -155,6 +183,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F0C75D602103D5A9002C1030 /* Build configuration list for PBXNativeTarget "SurgeWidget" */;
 			buildPhases = (
+				95674611060794514C5DF9B3 /* [CP] Check Pods Manifest.lock */,
 				F0C75D4C2103D5A8002C1030 /* Sources */,
 				F0C75D4D2103D5A8002C1030 /* Frameworks */,
 				F0C75D4E2103D5A8002C1030 /* Resources */,
@@ -172,6 +201,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F0EB31CE1D3F259D002F900C /* Build configuration list for PBXNativeTarget "Fairfares" */;
 			buildPhases = (
+				F0CC6E0032FA2010555AB9A5 /* [CP] Check Pods Manifest.lock */,
 				F0EB31B81D3F259D002F900C /* Sources */,
 				F0EB31B91D3F259D002F900C /* Frameworks */,
 				F0EB31BA1D3F259D002F900C /* Resources */,
@@ -257,6 +287,45 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		95674611060794514C5DF9B3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SurgeWidget-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F0CC6E0032FA2010555AB9A5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Fairfares-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F0C75D4C2103D5A8002C1030 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -299,6 +368,7 @@
 /* Begin XCBuildConfiguration section */
 		F0C75D5E2103D5A9002C1030 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C66E6945D5D3AAF8BA707E4E /* Pods-SurgeWidget.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -316,6 +386,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "SurgeWidget/Fairfares-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -323,6 +394,7 @@
 		};
 		F0C75D5F2103D5A9002C1030 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 16A7854B40FB1098BC70108C /* Pods-SurgeWidget.release.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -339,6 +411,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.molson.fairfares.SurgeWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "SurgeWidget/Fairfares-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -453,6 +526,7 @@
 		};
 		F0EB31CF1D3F259D002F900C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A212243C63B5DB00CA565F45 /* Pods-Fairfares.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -462,11 +536,13 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.molson.fairfares;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Fairfares/Fairfares-Bridging-Header.h";
 			};
 			name = Debug;
 		};
 		F0EB31D01D3F259D002F900C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D5D7E24649136F34EB19B2F3 /* Pods-Fairfares.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -476,6 +552,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.molson.fairfares;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Fairfares/Fairfares-Bridging-Header.h";
 			};
 			name = Release;
 		};

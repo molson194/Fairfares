@@ -20,6 +20,15 @@ class TodayViewController: UIViewController, NCWidgetProviding, CLLocationManage
         super.viewDidLoad()
         // Do any additional setup after loading the view from its nib.
         
+        // Setup analytics
+        guard let gai = GAI.sharedInstance() else {
+            return
+        }
+        gai.tracker(withTrackingId: "UA-105754354-2")
+        gai.trackUncaughtExceptions = true
+        
+        GAI.sharedInstance().defaultTracker.send(GAIDictionaryBuilder.createEvent(withCategory: "Widget", action: "Load", label: nil, value: nil).build() as [NSObject : AnyObject])
+        
         // Every time user goes to widgets, this runs
         locManager = CLLocationManager()
         locManager.requestWhenInUseAuthorization()
@@ -136,6 +145,11 @@ class TodayViewController: UIViewController, NCWidgetProviding, CLLocationManage
     
     @IBAction func openUber() {
         print("Open uber")
+        
+        let surgeString = "Uber:" + (uberSurge.titleLabel?.text!)! + "|Lyft:" + (lyftSurge.titleLabel?.text!)!
+        print(surgeString)
+        GAI.sharedInstance().defaultTracker.send(GAIDictionaryBuilder.createEvent(withCategory: "Widget", action: "Uber", label: surgeString, value: nil).build() as [NSObject : AnyObject])
+        
         let uberUrl  = URL(string: "uber://app")!
         let uberStore = URL(string: "itms-apps://itunes.apple.com/us/app/uber/id368677368?mt=8")!
         
@@ -148,6 +162,11 @@ class TodayViewController: UIViewController, NCWidgetProviding, CLLocationManage
     
     @IBAction func openLyft() {
         print("Open Lyft")
+        
+        let surgeString = "Uber:" + (uberSurge.titleLabel?.text!)! + "|Lyft:" + (lyftSurge.titleLabel?.text!)!
+        print(surgeString)
+        GAI.sharedInstance().defaultTracker.send(GAIDictionaryBuilder.createEvent(withCategory: "Widget", action: "Lyft", label: surgeString, value: nil).build() as [NSObject : AnyObject])
+        
         let lyftUrl  = URL(string: "lyft://app")!
         let lyftStore = URL(string: "itms-apps://itunes.apple.com/us/app/lyft-taxi-app-alternative/id529379082?mt=8")!
         

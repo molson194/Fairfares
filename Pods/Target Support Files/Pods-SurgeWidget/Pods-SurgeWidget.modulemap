@@ -1,0 +1,6 @@
+framework module Pods_SurgeWidget {
+  umbrella header "Pods-SurgeWidget-umbrella.h"
+
+  export *
+  module * { export * }
+}
