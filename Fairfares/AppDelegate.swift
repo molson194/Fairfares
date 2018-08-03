@@ -23,5 +23,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
+    
+    func applicationWillResignActive(_ application: UIApplication) {
+        GAI.sharedInstance().dispatch()
+    }
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+        GAI.sharedInstance().dispatch()
+    }
 }
 

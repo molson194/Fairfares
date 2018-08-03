@@ -28,6 +28,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, CLLocationManage
         gai.trackUncaughtExceptions = true
         
         GAI.sharedInstance().defaultTracker.send(GAIDictionaryBuilder.createEvent(withCategory: "Widget", action: "Load", label: nil, value: nil).build() as [NSObject : AnyObject])
+        GAI.sharedInstance().dispatch()
         
         // Every time user goes to widgets, this runs
         locManager = CLLocationManager()
@@ -149,6 +150,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, CLLocationManage
         let surgeString = "Uber:" + (uberSurge.titleLabel?.text!)! + "|Lyft:" + (lyftSurge.titleLabel?.text!)!
         print(surgeString)
         GAI.sharedInstance().defaultTracker.send(GAIDictionaryBuilder.createEvent(withCategory: "Widget", action: "Uber", label: surgeString, value: nil).build() as [NSObject : AnyObject])
+        GAI.sharedInstance().dispatch()
         
         let uberUrl  = URL(string: "uber://app")!
         let uberStore = URL(string: "itms-apps://itunes.apple.com/us/app/uber/id368677368?mt=8")!
@@ -166,6 +168,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, CLLocationManage
         let surgeString = "Uber:" + (uberSurge.titleLabel?.text!)! + "|Lyft:" + (lyftSurge.titleLabel?.text!)!
         print(surgeString)
         GAI.sharedInstance().defaultTracker.send(GAIDictionaryBuilder.createEvent(withCategory: "Widget", action: "Lyft", label: surgeString, value: nil).build() as [NSObject : AnyObject])
+        GAI.sharedInstance().dispatch()
         
         let lyftUrl  = URL(string: "lyft://app")!
         let lyftStore = URL(string: "itms-apps://itunes.apple.com/us/app/lyft-taxi-app-alternative/id529379082?mt=8")!

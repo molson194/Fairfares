@@ -22,7 +22,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        GAI.sharedInstance().defaultTracker.send(GAIDictionaryBuilder.createEvent(withCategory: "App", action: "Load", label: nil, value: nil).build() as [NSObject : AnyObject])
+        NotificationCenter.default.addObserver(self, selector: #selector(appDidOpenFromBackground), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
         
         locManager = CLLocationManager()
         locManager.requestWhenInUseAuthorization()
@@ -77,11 +77,22 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        GAI.sharedInstance().defaultTracker.send(GAIDictionaryBuilder.createEvent(withCategory: "App", action: "Open", label: nil, value: nil).build() as [NSObject : AnyObject])
+        GAI.sharedInstance().dispatch()
+        
+        locManager.startUpdatingLocation()
+    }
+    
+    @objc func appDidOpenFromBackground() {
+        GAI.sharedInstance().defaultTracker.send(GAIDictionaryBuilder.createEvent(withCategory: "App", action: "Reopen", label: nil, value: nil).build() as [NSObject : AnyObject])
+        GAI.sharedInstance().dispatch()
+        
         locManager.startUpdatingLocation()
     }
     
     @objc func refreshView(sender: UIRefreshControl) {
         GAI.sharedInstance().defaultTracker.send(GAIDictionaryBuilder.createEvent(withCategory: "App", action: "Refresh", label: nil, value: nil).build() as [NSObject : AnyObject])
+        GAI.sharedInstance().dispatch()
         
         locManager.startUpdatingLocation()
         sender.endRefreshing()
@@ -184,6 +195,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         let surgeString = "Uber:" + (uberSurge.titleLabel?.text!)! + "|Lyft:" + (lyftSurge.titleLabel?.text!)!
         print(surgeString)
         GAI.sharedInstance().defaultTracker.send(GAIDictionaryBuilder.createEvent(withCategory: "App", action: "Uber", label: surgeString, value: nil).build() as [NSObject : AnyObject])
+        GAI.sharedInstance().dispatch()
         
         let uberUrl  = URL(string: "uber://app")!
         let uberStore = URL(string: "itms-apps://itunes.apple.com/us/app/uber/id368677368?mt=8")!
@@ -200,6 +212,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         let surgeString = "Uber:" + (uberSurge.titleLabel?.text!)! + "|Lyft:" + (lyftSurge.titleLabel?.text!)!
         print(surgeString)
         GAI.sharedInstance().defaultTracker.send(GAIDictionaryBuilder.createEvent(withCategory: "App", action: "Lyft", label: surgeString, value: nil).build() as [NSObject : AnyObject])
+        GAI.sharedInstance().dispatch()
         
         let lyftUrl  = URL(string: "lyft://app")!
         let lyftStore = URL(string: "itms-apps://itunes.apple.com/us/app/lyft-taxi-app-alternative/id529379082?mt=8")!
