@@ -19,6 +19,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     let uberGradient: CAGradientLayer = CAGradientLayer()
     let lyftGradient: CAGradientLayer = CAGradientLayer()
     
+    var uberSurgeDict: [String: Double] = [:]
+    var lyftSurgeDict: [String: Double] = [:]
+    
+    // TODO top bar different color
+    
+    // TODO dictionary of slider options to car
+    // TODO get slider option
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,7 +42,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         refreshControl.addTarget(self, action: #selector(refreshView), for: .valueChanged)
         scrollView.refreshControl = refreshControl
         
-        uberGradient.colors = [UIColor.black.cgColor, UIColor.black.cgColor, UIColor.white.cgColor, UIColor.white.cgColor]
+        uberGradient.colors = [UIColor.black.cgColor, UIColor.black.cgColor, UIColor.white.cgColor, UIColor.white.cgColor] // TODO soften color
         uberGradient.locations = [0, 0.7, 0.7, 1.0]
         uberGradient.startPoint = CGPoint(x: 0.5, y: 0)
         uberGradient.endPoint = CGPoint(x: 0.5, y: 1)
@@ -49,7 +57,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         uberSurge.titleLabel?.minimumScaleFactor = 0.5
         uberSurge.titleLabel?.adjustsFontSizeToFitWidth = true
         
-        let pinkColor = UIColor(red:1.00, green:0.00, blue:0.73, alpha:1.0).cgColor
+        let pinkColor = UIColor(red:1.00, green:0.00, blue:0.73, alpha:1.0).cgColor // TODO soften color
         lyftGradient.colors = [pinkColor, pinkColor, UIColor.white.cgColor, UIColor.white.cgColor]
         lyftGradient.locations = [0, 0.7, 0.7, 1.0]
         lyftGradient.startPoint = CGPoint(x: 0.5, y: 0)
@@ -106,87 +114,119 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             let lat = currentLocation.coordinate.latitude
             let lon = currentLocation.coordinate.longitude
             
-            let url1 = NSURL(string: "https://api.uber.com/v1/estimates/price?start_latitude=" + String(lat) + "&start_longitude=" + String(lon) + "&end_latitude=" + String(lat) + "&end_longitude=" + String(lon))
-            let request1 = NSMutableURLRequest(url: url1! as URL)
-            request1.httpMethod = "GET"
-            request1.setValue("Token kWHSMejyzdpLL7-OoNpSPQSbHgzFF1TuFxmEOrtO", forHTTPHeaderField: "Authorization")
-            let session1 = URLSession.shared
-            session1.dataTask(with: request1 as URLRequest, completionHandler: { (returnData1, response1, error1) -> Void in
-                do {
-                    let json1 = try JSONSerialization.jsonObject(with: returnData1!, options: []) as! NSDictionary
-                    let uberCars = json1["prices"] as? NSArray
-                    for uberCarTemp in uberCars! {
-                        let uberCar = uberCarTemp as! NSDictionary
-                        let carName = uberCar["display_name"] as! String
-                        if carName == "UberX" || carName == "uberX" {
-                            let uSurge = uberCar["surge_multiplier"] as! Double
-                            DispatchQueue.main.async {
-                                self.uberSurge.setTitle(String(format: "%.2f", uSurge) + "x", for: .normal)
-                                self.uberSurge.titleLabel?.minimumScaleFactor = 0.5
-                                self.uberSurge.titleLabel?.adjustsFontSizeToFitWidth = true
-                                self.uberSurge.setNeedsDisplay()
-                            }
-                        }
+            self.getUberSurges(lat: lat, lon: lon)
+            self.getLyftSurges(lat: lat, lon: lon)
+            
+            //TODO getUberETA
+            //TODO getLyftETA
+        }
+    }
+    
+    func getUberSurges(lat:CLLocationDegrees, lon:CLLocationDegrees) {
+        let url1 = NSURL(string: "https://api.uber.com/v1/estimates/price?start_latitude=" + String(lat) + "&start_longitude=" + String(lon) + "&end_latitude=" + String(lat) + "&end_longitude=" + String(lon))
+        let request1 = NSMutableURLRequest(url: url1! as URL)
+        request1.httpMethod = "GET"
+        request1.setValue("Token kWHSMejyzdpLL7-OoNpSPQSbHgzFF1TuFxmEOrtO", forHTTPHeaderField: "Authorization")
+        let session1 = URLSession.shared
+        session1.dataTask(with: request1 as URLRequest, completionHandler: { (returnData1, response1, error1) -> Void in
+            do {
+                let json1 = try JSONSerialization.jsonObject(with: returnData1!, options: []) as! NSDictionary
+                let uberCars = json1["prices"] as? NSArray
+                for uberCarTemp in uberCars! {
+                    let uberCar = uberCarTemp as! NSDictionary
+                    let carName = uberCar["display_name"] as! String
+                    
+                    if let mult = uberCar["surge_multiplier"] {
+                        self.uberSurgeDict[carName] = mult as? Double
                     }
+                }
+                self.setUberSurge(carType: "UberX") //TODO
+            } catch {
+                print(error1!)
+                // TODO display error to user, can't get data
+            }
+        }).resume()
+    }
+    
+    func getLyftSurges(lat:CLLocationDegrees, lon:CLLocationDegrees) {
+        do {
+            let url2 = NSURL(string: "https://api.lyft.com/oauth/token")
+            let request2 = NSMutableURLRequest(url: url2! as URL)
+            let json2 = [ "grant_type":"client_credentials" , "scope": "public" ]
+            let jsonData2 = try JSONSerialization.data(withJSONObject: json2, options: .prettyPrinted)
+            
+            request2.httpMethod = "POST"
+            request2.httpBody = jsonData2
+            request2.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            let authorization = "7_DB9J4yrmiq:L4HrhTTa2Pempal8xvh-HhtoKpWEEsVQ".data(using:String.Encoding.utf8)?.base64EncodedString(options:NSData.Base64EncodingOptions(rawValue: 0))
+            request2.setValue("Basic " + authorization!, forHTTPHeaderField: "Authorization")
+            
+            let session2 = URLSession.shared
+            session2.dataTask(with: request2 as URLRequest as URLRequest, completionHandler: { (returnData2, response2, error2) -> Void in
+                do {
+                    let json = try JSONSerialization.jsonObject(with: returnData2!, options: JSONSerialization.ReadingOptions()) as! NSDictionary
+                    let token = json["access_token"] as! String
+                    
+                    let url3 = NSURL(string: "https://api.lyft.com/v1/cost?start_lat=" + String(lat) + "&start_lng=" + String(lon))
+                    let request3 = NSMutableURLRequest(url: url3! as URL)
+                    request3.httpMethod = "GET"
+                    request3.setValue("bearer " + token, forHTTPHeaderField: "Authorization")
+                    let session3 = URLSession.shared
+                    session3.dataTask(with: request3 as URLRequest, completionHandler: { (returnData3, response3, error3) -> Void in
+                        do {
+                            let json = try JSONSerialization.jsonObject(with: returnData3!, options: JSONSerialization.ReadingOptions()) as! NSDictionary
+                            let lyftCars = json["cost_estimates"] as! NSArray
+                            for lyftCarTemp in lyftCars {
+                                let lyftCar = lyftCarTemp as! NSDictionary
+                                let carName = lyftCar["display_name"] as! String
+                                
+                                if let mult = lyftCar["primetime_percentage"] {
+                                    let lSurgeString = mult as! String
+                                    let lSurge = lSurgeString.dropLast()
+                                    let lSurgeFloat = 1+Double(lSurge)!/100
+                                    self.lyftSurgeDict[carName] = lSurgeFloat
+                                }
+                            }
+                            self.setLyftSurge(carType: "Lyft") //TODO
+                        } catch {
+                            print(error3!)
+                        }
+                    }).resume()
                 } catch {
-                    print(error1!)
+                    print(error)
                 }
             }).resume()
-            
-            do {
-                let url2 = NSURL(string: "https://api.lyft.com/oauth/token")
-                let request2 = NSMutableURLRequest(url: url2! as URL)
-                let json2 = [ "grant_type":"client_credentials" , "scope": "public" ]
-                let jsonData2 = try JSONSerialization.data(withJSONObject: json2, options: .prettyPrinted)
-                
-                request2.httpMethod = "POST"
-                request2.httpBody = jsonData2
-                request2.setValue("application/json", forHTTPHeaderField: "Content-Type")
-                let authorization = "7_DB9J4yrmiq:L4HrhTTa2Pempal8xvh-HhtoKpWEEsVQ".data(using:String.Encoding.utf8)?.base64EncodedString(options:NSData.Base64EncodingOptions(rawValue: 0))
-                request2.setValue("Basic " + authorization!, forHTTPHeaderField: "Authorization")
-                
-                let session2 = URLSession.shared
-                session2.dataTask(with: request2 as URLRequest as URLRequest, completionHandler: { (returnData2, response2, error2) -> Void in
-                    do {
-                        let json = try JSONSerialization.jsonObject(with: returnData2!, options: JSONSerialization.ReadingOptions()) as! NSDictionary
-                        let token = json["access_token"] as! String
-                        
-                        let url3 = NSURL(string: "https://api.lyft.com/v1/cost?start_lat=" + String(lat) + "&start_lng=" + String(lon))
-                        let request3 = NSMutableURLRequest(url: url3! as URL)
-                        request3.httpMethod = "GET"
-                        request3.setValue("bearer " + token, forHTTPHeaderField: "Authorization")
-                        let session3 = URLSession.shared
-                        session3.dataTask(with: request3 as URLRequest, completionHandler: { (returnData3, response3, error3) -> Void in
-                            do {
-                                let json = try JSONSerialization.jsonObject(with: returnData3!, options: JSONSerialization.ReadingOptions()) as! NSDictionary
-                                let lyftCars = json["cost_estimates"] as! NSArray
-                                for lyftCarTemp in lyftCars {
-                                    let lyftCar = lyftCarTemp as! NSDictionary
-                                    let carName = lyftCar["display_name"] as! String
-                                    if carName == "Lyft" {
-                                        let lSurgeString = lyftCar["primetime_percentage"] as! String
-                                        let lSurge = lSurgeString.dropLast()
-                                        let lSurgeFloat = Float(lSurge)!/100
-                                        DispatchQueue.main.async {
-                                            self.lyftSurge.setTitle(String(format: "%.2f", 1+lSurgeFloat) + "x", for: .normal)
-                                            self.lyftSurge.titleLabel?.minimumScaleFactor = 0.5
-                                            self.lyftSurge.titleLabel?.adjustsFontSizeToFitWidth = true
-                                            self.lyftSurge.setNeedsDisplay()
-                                        }
-                                    }
-                                }
-                            } catch {
-                                print(error3!)
-                            }
-                        }).resume()
-                    } catch {
-                        print(error)
-                    }
-                }).resume()
-            } catch {
-                
-            }
+        } catch {
+            // TODO display error to user, can't get data
         }
+    }
+    
+    func setUberSurge(carType:String) {
+        if let mult = self.uberSurgeDict[carType] {
+            DispatchQueue.main.async {
+                self.uberSurge.setTitle(String(format: "%.2f", mult) + "x", for: .normal)
+                self.uberSurge.titleLabel?.minimumScaleFactor = 0.5
+                self.uberSurge.titleLabel?.adjustsFontSizeToFitWidth = true
+                self.uberSurge.setNeedsDisplay()
+            }
+        } else {
+            locManager.startUpdatingLocation()
+        }
+        // TODO could be infinite loop. if just updated location, car could not be available. display error to user and stop
+    }
+    
+    func setLyftSurge(carType:String) {
+        if let mult = self.lyftSurgeDict[carType] {
+            DispatchQueue.main.async {
+                self.lyftSurge.setTitle(String(format: "%.2f", mult) + "x", for: .normal)
+                self.lyftSurge.titleLabel?.minimumScaleFactor = 0.5
+                self.lyftSurge.titleLabel?.adjustsFontSizeToFitWidth = true
+                self.lyftSurge.setNeedsDisplay()
+            }
+        } else {
+            locManager.startUpdatingLocation()
+        }
+        // TODO could be infinite loop. if just updated location, car could not be available. display error to user and stop
     }
     
     @IBAction func openUber() {
