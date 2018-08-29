@@ -15,6 +15,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var uberSurge: UIButton!
     @IBOutlet weak var lyftSurge: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     let uberGradient: CAGradientLayer = CAGradientLayer()
     let lyftGradient: CAGradientLayer = CAGradientLayer()
@@ -22,10 +23,34 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     var uberSurgeDict: [String: Double] = [:]
     var lyftSurgeDict: [String: Double] = [:]
     
-    // TODO top bar different color
+    func displayUber() {
+        DispatchQueue.main.async {
+            if self.segmentedControl.selectedSegmentIndex == 0 {
+                self.setUberSurge(carType: "UberPool")
+            } else if self.segmentedControl.selectedSegmentIndex == 1 {
+                self.setUberSurge(carType: "UberX")
+            } else if self.segmentedControl.selectedSegmentIndex == 2 {
+                self.setUberSurge(carType: "UberXL")
+            }
+        }
+    }
     
-    // TODO dictionary of slider options to car
-    // TODO get slider option
+    func displayLyft () {
+        DispatchQueue.main.async {
+            if self.segmentedControl.selectedSegmentIndex == 0 {
+                self.setLyftSurge(carType: "Lyft Line")
+            } else if self.segmentedControl.selectedSegmentIndex == 1 {
+                self.setLyftSurge(carType: "Lyft")
+            } else if self.segmentedControl.selectedSegmentIndex == 2 {
+                self.setLyftSurge(carType: "Lyft XL")
+            }
+        }
+    }
+    
+    @IBAction func segmentChanged () {
+        self.displayUber()
+        self.displayLyft()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +67,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         refreshControl.addTarget(self, action: #selector(refreshView), for: .valueChanged)
         scrollView.refreshControl = refreshControl
         
-        uberGradient.colors = [UIColor.black.cgColor, UIColor.black.cgColor, UIColor.white.cgColor, UIColor.white.cgColor] // TODO soften color
+        uberGradient.colors = [UIColor.black.cgColor, UIColor.black.cgColor, UIColor.white.cgColor, UIColor.white.cgColor]
         uberGradient.locations = [0, 0.7, 0.7, 1.0]
         uberGradient.startPoint = CGPoint(x: 0.5, y: 0)
         uberGradient.endPoint = CGPoint(x: 0.5, y: 1)
@@ -57,7 +82,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         uberSurge.titleLabel?.minimumScaleFactor = 0.5
         uberSurge.titleLabel?.adjustsFontSizeToFitWidth = true
         
-        let pinkColor = UIColor(red:1.00, green:0.00, blue:0.73, alpha:1.0).cgColor // TODO soften color
+        let pinkColor = UIColor(red:1.00, green:0.00, blue:0.73, alpha:1.0).cgColor
         lyftGradient.colors = [pinkColor, pinkColor, UIColor.white.cgColor, UIColor.white.cgColor]
         lyftGradient.locations = [0, 0.7, 0.7, 1.0]
         lyftGradient.startPoint = CGPoint(x: 0.5, y: 0)
@@ -114,6 +139,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             let lat = currentLocation.coordinate.latitude
             let lon = currentLocation.coordinate.longitude
             
+            self.uberSurgeDict["TEST"] = 0.0
+            self.lyftSurgeDict["TEST"] = 0.0
+            
             self.getUberSurges(lat: lat, lon: lon)
             self.getLyftSurges(lat: lat, lon: lon)
             
@@ -140,10 +168,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                         self.uberSurgeDict[carName] = mult as? Double
                     }
                 }
-                self.setUberSurge(carType: "UberX") //TODO
+                self.displayUber()
             } catch {
                 print(error1!)
-                // TODO display error to user, can't get data
             }
         }).resume()
     }
@@ -187,7 +214,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                                     self.lyftSurgeDict[carName] = lSurgeFloat
                                 }
                             }
-                            self.setLyftSurge(carType: "Lyft") //TODO
+                            self.displayLyft()
                         } catch {
                             print(error3!)
                         }
@@ -197,7 +224,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 }
             }).resume()
         } catch {
-            // TODO display error to user, can't get data
         }
     }
     
@@ -209,10 +235,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 self.uberSurge.titleLabel?.adjustsFontSizeToFitWidth = true
                 self.uberSurge.setNeedsDisplay()
             }
+        } else if let _ = self.uberSurgeDict["TEST"] {
+            DispatchQueue.main.async {
+                self.uberSurge.setTitle("?.??x", for: .normal)
+                self.uberSurge.titleLabel?.minimumScaleFactor = 0.5
+                self.uberSurge.titleLabel?.adjustsFontSizeToFitWidth = true
+                self.uberSurge.setNeedsDisplay()
+            }
         } else {
             locManager.startUpdatingLocation()
         }
-        // TODO could be infinite loop. if just updated location, car could not be available. display error to user and stop
     }
     
     func setLyftSurge(carType:String) {
@@ -223,10 +255,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 self.lyftSurge.titleLabel?.adjustsFontSizeToFitWidth = true
                 self.lyftSurge.setNeedsDisplay()
             }
+        } else if let _ = self.lyftSurgeDict["TEST"] {
+            DispatchQueue.main.async {
+                self.lyftSurge.setTitle("?.??x", for: .normal)
+                self.lyftSurge.titleLabel?.minimumScaleFactor = 0.5
+                self.lyftSurge.titleLabel?.adjustsFontSizeToFitWidth = true
+                self.lyftSurge.setNeedsDisplay()
+            }
         } else {
             locManager.startUpdatingLocation()
         }
-        // TODO could be infinite loop. if just updated location, car could not be available. display error to user and stop
     }
     
     @IBAction func openUber() {

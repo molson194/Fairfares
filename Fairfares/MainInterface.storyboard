@@ -76,6 +76,9 @@
                                             <segment title="Large"/>
                                         </segments>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="segmentChanged" destination="A2N-gf-hoW" eventType="valueChanged" id="fHb-Fc-3AG"/>
+                                        </connections>
                                     </segmentedControl>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ihI-w4-hHx" userLabel="UberLine">
                                         <rect key="frame" x="36.666666666666657" y="190.33333333333334" width="304" height="5"/>
@@ -165,6 +168,7 @@
                     <connections>
                         <outlet property="lyftSurge" destination="5Oa-uV-YQc" id="zUl-EK-34A"/>
                         <outlet property="scrollView" destination="LYQ-5p-GFL" id="oIH-62-qa1"/>
+                        <outlet property="segmentedControl" destination="QU6-Yj-Xfc" id="U5i-kH-PCg"/>
                         <outlet property="uberSurge" destination="gL1-fM-D8r" id="grg-Oa-ifV"/>
                     </connections>
                 </viewController>
