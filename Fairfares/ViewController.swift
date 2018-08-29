@@ -13,7 +13,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     var locManager : CLLocationManager!
     @IBOutlet weak var uberSurge: UIButton!
+    @IBOutlet weak var uberETA: UILabel!
     @IBOutlet weak var lyftSurge: UIButton!
+    @IBOutlet weak var lyftETA: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
@@ -23,7 +25,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     var uberSurgeDict: [String: Double] = [:]
     var lyftSurgeDict: [String: Double] = [:]
     
-    func displayUber() {
+    var uberETADict: [String: Double] = [:]
+    var lyftETADict: [String: Double] = [:]
+    
+    func displayUberSurge() {
         DispatchQueue.main.async {
             if self.segmentedControl.selectedSegmentIndex == 0 {
                 self.setUberSurge(carType: "UberPool")
@@ -35,10 +40,22 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
-    func displayLyft () {
+    func displayUberETA() {
         DispatchQueue.main.async {
             if self.segmentedControl.selectedSegmentIndex == 0 {
-                self.setLyftSurge(carType: "Lyft Line")
+                self.setUberETA(carType: "UberPool")
+            } else if self.segmentedControl.selectedSegmentIndex == 1 {
+                self.setUberETA(carType: "UberX")
+            } else if self.segmentedControl.selectedSegmentIndex == 2 {
+                self.setUberETA(carType: "UberXL")
+            }
+        }
+    }
+    
+    func displayLyftSurge () {
+        DispatchQueue.main.async {
+            if self.segmentedControl.selectedSegmentIndex == 0 {
+                self.setLyftSurge(carType: "Shared")
             } else if self.segmentedControl.selectedSegmentIndex == 1 {
                 self.setLyftSurge(carType: "Lyft")
             } else if self.segmentedControl.selectedSegmentIndex == 2 {
@@ -47,9 +64,23 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
+    func displayLyftETA () {
+        DispatchQueue.main.async {
+            if self.segmentedControl.selectedSegmentIndex == 0 {
+                self.setLyftETA(carType: "Shared")
+            } else if self.segmentedControl.selectedSegmentIndex == 1 {
+                self.setLyftETA(carType: "Lyft")
+            } else if self.segmentedControl.selectedSegmentIndex == 2 {
+                self.setLyftETA(carType: "Lyft XL")
+            }
+        }
+    }
+    
     @IBAction func segmentChanged () {
-        self.displayUber()
-        self.displayLyft()
+        self.displayUberSurge()
+        self.displayLyftSurge()
+        self.displayUberETA()
+        self.displayLyftETA()
     }
     
     override func viewDidLoad() {
@@ -142,11 +173,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             self.uberSurgeDict["TEST"] = 0.0
             self.lyftSurgeDict["TEST"] = 0.0
             
+            self.uberETADict["TEST"] = 0.0
+            self.lyftETADict["TEST"] = 0.0
+            
             self.getUberSurges(lat: lat, lon: lon)
             self.getLyftSurges(lat: lat, lon: lon)
             
-            //TODO getUberETA
-            //TODO getLyftETA
+            self.getUberETAs(lat: lat, lon: lon)
+            self.getLyftETAs(lat: lat, lon: lon)
         }
     }
     
@@ -168,7 +202,32 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                         self.uberSurgeDict[carName] = mult as? Double
                     }
                 }
-                self.displayUber()
+                self.displayUberSurge()
+            } catch {
+                print(error1!)
+            }
+        }).resume()
+    }
+    
+    func getUberETAs(lat:CLLocationDegrees, lon:CLLocationDegrees) {
+        let url1 = NSURL(string: "https://api.uber.com/v1/estimates/time?start_latitude=" + String(lat) + "&start_longitude=" + String(lon))
+        let request1 = NSMutableURLRequest(url: url1! as URL)
+        request1.httpMethod = "GET"
+        request1.setValue("Token kWHSMejyzdpLL7-OoNpSPQSbHgzFF1TuFxmEOrtO", forHTTPHeaderField: "Authorization")
+        let session1 = URLSession.shared
+        session1.dataTask(with: request1 as URLRequest, completionHandler: { (returnData1, response1, error1) -> Void in
+            do {
+                let json1 = try JSONSerialization.jsonObject(with: returnData1!, options: []) as! NSDictionary
+                let uberCars = json1["times"] as? NSArray
+                for uberCarTemp in uberCars! {
+                    let uberCar = uberCarTemp as! NSDictionary
+                    let carName = uberCar["display_name"] as! String
+                    
+                    if let eta = uberCar["estimate"] {
+                        self.uberETADict[carName] = eta as? Double
+                    }
+                }
+                self.displayUberETA()
             } catch {
                 print(error1!)
             }
@@ -214,7 +273,56 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                                     self.lyftSurgeDict[carName] = lSurgeFloat
                                 }
                             }
-                            self.displayLyft()
+                            self.displayLyftSurge()
+                        } catch {
+                            print(error3!)
+                        }
+                    }).resume()
+                } catch {
+                    print(error)
+                }
+            }).resume()
+        } catch {
+        }
+    }
+    
+    func getLyftETAs(lat:CLLocationDegrees, lon:CLLocationDegrees) {
+        do {
+            let url2 = NSURL(string: "https://api.lyft.com/oauth/token")
+            let request2 = NSMutableURLRequest(url: url2! as URL)
+            let json2 = [ "grant_type":"client_credentials" , "scope": "public" ]
+            let jsonData2 = try JSONSerialization.data(withJSONObject: json2, options: .prettyPrinted)
+            
+            request2.httpMethod = "POST"
+            request2.httpBody = jsonData2
+            request2.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            let authorization = "7_DB9J4yrmiq:L4HrhTTa2Pempal8xvh-HhtoKpWEEsVQ".data(using:String.Encoding.utf8)?.base64EncodedString(options:NSData.Base64EncodingOptions(rawValue: 0))
+            request2.setValue("Basic " + authorization!, forHTTPHeaderField: "Authorization")
+            
+            let session2 = URLSession.shared
+            session2.dataTask(with: request2 as URLRequest as URLRequest, completionHandler: { (returnData2, response2, error2) -> Void in
+                do {
+                    let json = try JSONSerialization.jsonObject(with: returnData2!, options: JSONSerialization.ReadingOptions()) as! NSDictionary
+                    let token = json["access_token"] as! String
+                    
+                    let url3 = NSURL(string: "https://api.lyft.com/v1/eta?lat=" + String(lat) + "&lng=" + String(lon))
+                    let request3 = NSMutableURLRequest(url: url3! as URL)
+                    request3.httpMethod = "GET"
+                    request3.setValue("bearer " + token, forHTTPHeaderField: "Authorization")
+                    let session3 = URLSession.shared
+                    session3.dataTask(with: request3 as URLRequest, completionHandler: { (returnData3, response3, error3) -> Void in
+                        do {
+                            let json = try JSONSerialization.jsonObject(with: returnData3!, options: JSONSerialization.ReadingOptions()) as! NSDictionary
+                            let lyftCars = json["eta_estimates"] as! NSArray
+                            for lyftCarTemp in lyftCars {
+                                let lyftCar = lyftCarTemp as! NSDictionary
+                                let carName = lyftCar["display_name"] as! String
+                                
+                                if let eta = lyftCar["eta_seconds"] {
+                                    self.lyftETADict[carName] = eta as? Double
+                                }
+                            }
+                            self.displayLyftETA()
                         } catch {
                             print(error3!)
                         }
@@ -247,6 +355,26 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
+    func setUberETA(carType:String) {
+        if let eta = self.uberETADict[carType] {
+            DispatchQueue.main.async {
+                if (eta/60).rounded() == 1.0 {
+                    self.uberETA.text = String(format: "%.0f", (eta/60).rounded()) + " minute away"
+                } else {
+                    self.uberETA.text = String(format: "%.0f", (eta/60).rounded()) + " minutes away"
+                }
+                self.uberETA.setNeedsDisplay()
+            }
+        } else if let _ = self.uberETADict["TEST"] {
+            DispatchQueue.main.async {
+                self.uberETA.text = "? minutes away"
+                self.uberETA.setNeedsDisplay()
+            }
+        } else {
+            locManager.startUpdatingLocation()
+        }
+    }
+    
     func setLyftSurge(carType:String) {
         if let mult = self.lyftSurgeDict[carType] {
             DispatchQueue.main.async {
@@ -261,6 +389,26 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 self.lyftSurge.titleLabel?.minimumScaleFactor = 0.5
                 self.lyftSurge.titleLabel?.adjustsFontSizeToFitWidth = true
                 self.lyftSurge.setNeedsDisplay()
+            }
+        } else {
+            locManager.startUpdatingLocation()
+        }
+    }
+    
+    func setLyftETA(carType:String) {
+        if let eta = self.lyftETADict[carType] {
+            DispatchQueue.main.async {
+                if (eta/60).rounded() == 1.0 {
+                    self.lyftETA.text = String(format: "%.0f", (eta/60).rounded()) + " minute away"
+                } else {
+                    self.lyftETA.text = String(format: "%.0f", (eta/60).rounded()) + " minutes away"
+                }
+                self.lyftETA.setNeedsDisplay()
+            }
+        } else if let _ = self.lyftETADict["TEST"] {
+            DispatchQueue.main.async {
+                self.lyftETA.text = "? minutes away"
+                self.lyftETA.setNeedsDisplay()
             }
         } else {
             locManager.startUpdatingLocation()

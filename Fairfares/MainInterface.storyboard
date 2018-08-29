@@ -166,9 +166,11 @@
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="lyftETA" destination="EWX-Ew-AKr" id="6rq-fK-LbC"/>
                         <outlet property="lyftSurge" destination="5Oa-uV-YQc" id="zUl-EK-34A"/>
                         <outlet property="scrollView" destination="LYQ-5p-GFL" id="oIH-62-qa1"/>
                         <outlet property="segmentedControl" destination="QU6-Yj-Xfc" id="U5i-kH-PCg"/>
+                        <outlet property="uberETA" destination="QGC-Fm-yZL" id="Dn6-q9-N19"/>
                         <outlet property="uberSurge" destination="gL1-fM-D8r" id="grg-Oa-ifV"/>
                     </connections>
                 </viewController>
