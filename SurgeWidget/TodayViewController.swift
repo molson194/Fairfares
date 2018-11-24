@@ -64,7 +64,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, CLLocationManage
             let url1 = NSURL(string: "https://api.uber.com/v1/estimates/price?start_latitude=" + String(lat) + "&start_longitude=" + String(lon) + "&end_latitude=" + String(lat) + "&end_longitude=" + String(lon))
             let request1 = NSMutableURLRequest(url: url1! as URL)
             request1.httpMethod = "GET"
-            request1.setValue("Token kWHSMejyzdpLL7-OoNpSPQSbHgzFF1TuFxmEOrtO", forHTTPHeaderField: "Authorization")
+            request1.setValue("Token UBER_TOKEN", forHTTPHeaderField: "Authorization")
             let session1 = URLSession.shared
             session1.dataTask(with: request1 as URLRequest, completionHandler: { (returnData1, response1, error1) -> Void in
                 do {
@@ -97,7 +97,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, CLLocationManage
                 request2.httpMethod = "POST"
                 request2.httpBody = jsonData2
                 request2.setValue("application/json", forHTTPHeaderField: "Content-Type")
-                let authorization = "7_DB9J4yrmiq:L4HrhTTa2Pempal8xvh-HhtoKpWEEsVQ".data(using:String.Encoding.utf8)?.base64EncodedString(options:NSData.Base64EncodingOptions(rawValue: 0))
+                let authorization = "LYFT_TOKEN".data(using:String.Encoding.utf8)?.base64EncodedString(options:NSData.Base64EncodingOptions(rawValue: 0))
                 request2.setValue("Basic " + authorization!, forHTTPHeaderField: "Authorization")
                 
                 let session2 = URLSession.shared
